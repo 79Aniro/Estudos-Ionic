@@ -16,8 +16,16 @@ export class FeedPage {
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
+
+  public somaDoisNumeros(): void{
+
+    alert("minha funcao funcionou");
+
+  }
+
+
   ionViewDidLoad() {
-    console.log('ionViewDidLoad FeedPage');
+    this.somaDoisNumeros();
   }
 
 }
