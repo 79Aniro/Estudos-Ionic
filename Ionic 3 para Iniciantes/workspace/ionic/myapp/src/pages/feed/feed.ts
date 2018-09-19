@@ -17,15 +17,15 @@ export class FeedPage {
   }
 
 
-  public somaDoisNumeros(): void{
+  public somaDoisNumeros(num1:number,num2:number): void{//passando parametros num1 e num2 para a funcao
 
-    alert("minha funcao funcionou");
+    alert(num1+num2);
 
   }
 
 
   ionViewDidLoad() {
-    this.somaDoisNumeros();
+    this.somaDoisNumeros(10,99);
   }
 
 }
