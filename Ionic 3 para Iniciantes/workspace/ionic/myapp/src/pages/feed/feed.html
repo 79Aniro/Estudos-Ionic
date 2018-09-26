@@ -15,33 +15,32 @@
       <ion-avatar item-start>
         <img src="assets/imgs/marty-avatar.png"> <!-- inserindo imagem na pagina-->
       </ion-avatar>
-      <h2 class="feed_title">{{nomeUsuario}}</h2> <!-- Interpolação -->
-      <p class="feed_date">November 5, 1955</p>
+      <h2 class="feed_title">{{objeto.titulo}}</h2> <!-- Interpolação -->
+      <p class="feed_date">{{objeto.data}}</p>
     </ion-item>
 
     <img src="assets/imgs/advance-card-bttf.png">
 
     <ion-card-content>
-      <p>Wait a minute. Wait a minute, Doc. Uhhh... Are you telling me that you built a time machine... out of a
-        DeLorean?! Whoa. This is heavy.</p>
+      <p>{{objeto.descricao}}</p>
     </ion-card-content>
 
     <ion-row>
       <ion-col>
         <button ion-button icon-start clear small>
           <ion-icon name="thumbs-up"></ion-icon>
-          <div>12 Likes</div>
+          <div>{{objeto.quant_likes}}</div>
         </button>
       </ion-col>
       <ion-col>
         <button ion-button icon-start clear small>
           <ion-icon name="text"></ion-icon>
-          <div>4 Comments</div>
+          <div>{{objeto.quant_coment}}</div>
         </button>
       </ion-col>
       <ion-col center text-center>
         <ion-note>
-          11h ago
+          {{objeto.time_coment}}
         </ion-note>
       </ion-col>
     </ion-row>
