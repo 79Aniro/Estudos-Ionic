@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { MoovieProvider } from '../../providers/moovie/moovie';
 
 
 
@@ -7,11 +8,17 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 @Component({
   selector: 'page-feed',
   templateUrl: 'feed.html',
+  providers:[
+    MoovieProvider
+  ]
 })
 export class FeedPage {
 
+public lista_filmes= new Array<any>();
 
   public objeto = {//criando objeto JSON para ser consumido na pagina
+
+    
     titulo: "Nome Titulo",
     data: "November 5, 1955",
     descricao: "Wait a minute. Wait a minute, Doc. Uhhh... Are you telling me that you built a time machine...out of a DeLorean?! Whoa. This is heavy",
@@ -24,7 +31,9 @@ export class FeedPage {
   public nomeUsuario: string = "Aniro Montenegro nome do codigo";
 
   //public nomeUsuario:any="Aniro Montenegro nome do codigo";  any a variavel aceita qualquer coisa
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, 
+    public navParams: NavParams,
+    private movieProvider:MoovieProvider) {
   }
 
 
@@ -37,7 +46,16 @@ export class FeedPage {
 
 
   ionViewDidLoad() {
-    //this.somaDoisNumeros(10,99);
+    this.movieProvider.getLatestMovies().subscribe(
+      data=>{
+        const response=(data as any);//casting de valor
+        const objeto_retorno= JSON.parse(response._body)
+        this.lista_filmes=objeto_retorno.results;
+        console.log(objeto_retorno);
+      },error=>{
+        console.log(error);
+      }
+    )
   }
 
 }
