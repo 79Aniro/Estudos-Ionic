@@ -13,6 +13,6 @@ export class MoovieProvider {
 
   getLatestMovies() { //busca as informações no servidor
 
-    return this.http.get(this.baseApi + "/movie/popular?api_key=<key>");
+    return this.http.get(this.baseApi + "/movie/popular?api_key=bca5eeea2faa3f71abdb7de2efcc1ef6");
   }
 }
