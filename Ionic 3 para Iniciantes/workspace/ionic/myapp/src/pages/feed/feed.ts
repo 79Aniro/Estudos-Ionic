@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
 import { MoovieProvider } from '../../providers/moovie/moovie';
 
 
@@ -15,6 +15,7 @@ import { MoovieProvider } from '../../providers/moovie/moovie';
 export class FeedPage {
 
 public lista_filmes= new Array<any>();
+public loader;
 
   public objeto = {//criando objeto JSON para ser consumido na pagina
 
@@ -33,7 +34,8 @@ public lista_filmes= new Array<any>();
   //public nomeUsuario:any="Aniro Montenegro nome do codigo";  any a variavel aceita qualquer coisa
   constructor(public navCtrl: NavController, 
     public navParams: NavParams,
-    private movieProvider:MoovieProvider) {
+    private movieProvider:MoovieProvider,
+    public loadingCtrl: LoadingController) {
   }
 
 
@@ -45,17 +47,32 @@ public lista_filmes= new Array<any>();
   }
 
 
-  ionViewDidLoad() {
+  ionViewDidEnter() {
+    this.abreLoading();
     this.movieProvider.getLatestMovies().subscribe(
       data=>{
         const response=(data as any);//casting de valor
         const objeto_retorno= JSON.parse(response._body)
         this.lista_filmes=objeto_retorno.results;
         console.log(objeto_retorno);
+        this.fechaLoading();
       },error=>{
         console.log(error);
+        this.fechaLoading();
       }
     )
+  }
+
+  abreLoading() {
+    this.loader = this.loadingCtrl.create({
+      content: "Please wait...",
+     
+    });
+    this.loader.present();
+  }
+
+  fechaLoading(){
+    this.loader.dismiss();
   }
 
 }
