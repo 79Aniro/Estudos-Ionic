@@ -7,9 +7,12 @@
 </ion-header>
 
 
-<ion-content padding class="masters"><!--Classe para mudar cor do background-->
-  
-  <ion-card  *ngFor="let filme of lista_filmes">  
+<ion-content padding class="masters">
+  <!--Classe para mudar cor do background-->
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  <ion-card *ngFor="let filme of lista_filmes">
 
     <ion-item>
       <ion-avatar item-start>

@@ -30,7 +30,8 @@ public loader;
 
   }
   public nomeUsuario: string = "Aniro Montenegro nome do codigo";
-
+public refresher;
+public isRefresher:boolean=false;
   //public nomeUsuario:any="Aniro Montenegro nome do codigo";  any a variavel aceita qualquer coisa
   constructor(public navCtrl: NavController, 
     public navParams: NavParams,
@@ -48,21 +49,30 @@ public loader;
 
 
   ionViewDidEnter() {
-    this.abreLoading();
-    this.movieProvider.getLatestMovies().subscribe(
-      data=>{
-        const response=(data as any);//casting de valor
-        const objeto_retorno= JSON.parse(response._body)
-        this.lista_filmes=objeto_retorno.results;
-        console.log(objeto_retorno);
-        this.fechaLoading();
-      },error=>{
-        console.log(error);
-        this.fechaLoading();
-      }
-    )
+   this.carregaFilmes();
   }
-
+carregaFilmes(){
+  this.abreLoading();
+  this.movieProvider.getLatestMovies().subscribe(
+    data=>{
+      const response=(data as any);//casting de valor
+      const objeto_retorno= JSON.parse(response._body)
+      this.lista_filmes=objeto_retorno.results;
+      console.log(objeto_retorno);
+      this.fechaLoading();
+      if(this.isRefresher){
+        this.refresher.complete();
+        this.isRefresher=false;
+      }
+    },error=>{
+      console.log(error);
+      this.fechaLoading();
+      if(this.isRefresher){
+        this.refresher.complete();
+      }
+    }
+  )
+}
   abreLoading() {
     this.loader = this.loadingCtrl.create({
       content: "Please wait...",
@@ -75,4 +85,11 @@ public loader;
     this.loader.dismiss();
   }
 
+
+  doRefresh(refresher) {
+    this.refresher=refresher;
+    this.isRefresher=true;
+
+    this.carregaFilmes();
+  }
 }
