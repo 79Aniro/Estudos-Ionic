@@ -1,0 +1,7 @@
+{
+  "name": "Matematico",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}
