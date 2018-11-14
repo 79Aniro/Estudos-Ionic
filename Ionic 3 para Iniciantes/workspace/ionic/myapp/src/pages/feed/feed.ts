@@ -16,22 +16,12 @@ export class FeedPage {
 
 public lista_filmes= new Array<any>();
 public loader;
-
-  public objeto = {//criando objeto JSON para ser consumido na pagina
-
-    
-    titulo: "Nome Titulo",
-    data: "November 5, 1955",
-    descricao: "Wait a minute. Wait a minute, Doc. Uhhh... Are you telling me that you built a time machine...out of a DeLorean?! Whoa. This is heavy",
-    quant_likes: 12,
-    quant_coment: 4,
-    time_coment: "11h ago"
-
-
-  }
-  public nomeUsuario: string = "Aniro Montenegro nome do codigo";
 public refresher;
 public isRefresher:boolean=false;
+ 
+  public nomeUsuario: string = "Aniro Montenegro nome do codigo";
+
+
   //public nomeUsuario:any="Aniro Montenegro nome do codigo";  any a variavel aceita qualquer coisa
   constructor(public navCtrl: NavController, 
     public navParams: NavParams,
@@ -75,7 +65,7 @@ carregaFilmes(){
 }
   abreLoading() {
     this.loader = this.loadingCtrl.create({
-      content: "Please wait...",
+      content: "Carregando Filmes...",
      
     });
     this.loader.present();
