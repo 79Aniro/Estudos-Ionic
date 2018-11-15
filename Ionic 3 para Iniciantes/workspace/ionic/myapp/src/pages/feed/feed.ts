@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
 import { MoovieProvider } from '../../providers/moovie/moovie';
+import { FilmeDetalhesPage } from '../filme-detalhes/filme-detalhes';
 
 
 
@@ -41,6 +42,13 @@ public isRefresher:boolean=false;
   ionViewDidEnter() {
    this.carregaFilmes();
   }
+
+
+  abrirDetalhes(){
+    this.navCtrl.push(FilmeDetalhesPage);
+  }
+
+  
 carregaFilmes(){
   this.abreLoading();
   this.movieProvider.getLatestMovies().subscribe(

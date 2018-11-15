@@ -18,6 +18,9 @@ import { ConfiguracoesPageModule } from '../pages/configuracoes/configuracoes.mo
 import { SobrePageModule } from '../pages/sobre/sobre.module';
 import { PerfilPageModule } from '../pages/perfil/perfil.module';
 
+import { FilmeDetalhesPageModule } from '../pages/filme-detalhes/filme-detalhes.module';
+import { FilmeDetalhesPage } from '../pages/filme-detalhes/filme-detalhes';
+
 @NgModule({
   declarations: [
     MyApp,
@@ -25,6 +28,7 @@ import { PerfilPageModule } from '../pages/perfil/perfil.module';
     ContactPage,
     HomePage,
     TabsPage,
+    
     
   ],
   imports: [
@@ -35,7 +39,9 @@ import { PerfilPageModule } from '../pages/perfil/perfil.module';
     HttpModule,
     ConfiguracoesPageModule,
     SobrePageModule,
-    PerfilPageModule
+    PerfilPageModule,
+    FilmeDetalhesPageModule
+   
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -44,6 +50,7 @@ import { PerfilPageModule } from '../pages/perfil/perfil.module';
     ContactPage,
     HomePage,
     TabsPage,
+    
     
   ],
   providers: [
