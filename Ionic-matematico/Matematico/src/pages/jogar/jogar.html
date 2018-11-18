@@ -1,0 +1,31 @@
+
+<ion-header >
+
+  <ion-navbar class="topo">
+    <ion-title>Jogar</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+    <ion-card>
+        <ion-card-header class="pontos">
+         Pontos= {{pontos}}
+        </ion-card-header>
+        <ion-card-content class="texto">
+        <p>Selecione a opção que contempla a logica</p> 
+        <p>{{numero1}}    {{operacao}}     {{numero2}}</p> 
+        </ion-card-content>
+      </ion-card>
+
+      <br>
+      <br>
+
+      <ion-list>
+          <button class="lista" ion-item *ngFor="let item of numeros" (click)="itemSelected(item)">
+            {{ item }}
+          </button>  
+        </ion-list>
+</ion-content>
