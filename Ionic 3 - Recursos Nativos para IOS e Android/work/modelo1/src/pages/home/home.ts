@@ -13,7 +13,9 @@ export class HomePage {
     private camera: Camera) {
 
   }
+// API MAPS CHAVE AIzaSyAX6PJC6w43zd202rLtT2fGE5dLhi3i2y0
 
+// ionic cordova plugin add cordova-plugin-googlemaps --variable API_KEY_FOR_ANDROID="AIzaSyAX6PJC6w43zd202rLtT2fGE5dLhi3i2y0" --variable API_KEY_FOR_IOS="AIzaSyAX6PJC6w43zd202rLtT2fGE5dLhi3i2y0"
   abrirCamera(){
 
     let config:CameraOptions={
