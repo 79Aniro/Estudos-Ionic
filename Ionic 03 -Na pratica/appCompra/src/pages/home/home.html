@@ -9,18 +9,17 @@
 
 <ion-content padding>
   
-  <ion-card>
-    <img src="https://cdn-images-1.medium.com/max/1200/1*jxlCALz6A7tfrC7nC9W9og.jpeg"/>
+  <ion-card *ngFor="let item of lista">
+    <img [src]= "item.imagem"/>
     <ion-card-content>
       <ion-card-title>
-        Nine Inch Nails Live
+        {{item.titulo}}
         </ion-card-title>
       <p>
-        The most popular industrial group ever, and largely
-        responsible for bringing the music to a mass audience.
+    {{item.descricao}}
       </p>
-      <button ion-button block>Mais</button>
-      <button ion-button block color="secondary">R$ 25,00</button>
+      <button ion-button block  (click)="abreDetalhe(item)">Mais</button>
+      <button ion-button block color="secondary">R$ {{item.valor_txt}}</button>
     </ion-card-content>
   </ion-card>
 
