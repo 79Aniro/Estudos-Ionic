@@ -22,11 +22,11 @@ export class HomePage {
         {
 
           id:1,
-          titulo:"1-Introdução ao curso - 12:25",video:"https://www.youtube.com/watch?v=DkWgRaO862o"},
-        {id:2,titulo:"2-Instalando Ferramentas - 12:25",video:"https://www.youtube.com/watch?v=DkWgRaO862o"},
-        {id:3,titulo:"3-O que é Ionic? - 10:05",video:"https://www.youtube.com/watch?v=DkWgRaO862o"},
-        {id:4,titulo:"4-Instalando Android Studio - 08:05",video:"https://www.youtube.com/watch?v=DkWgRaO862o"},
-        {id:5,titulo:"5-Primeiro App - 07:05",video:"https://www.youtube.com/watch?v=DkWgRaO862o"},
+          titulo:"1-Introdução ao curso - 12:25",video:"https://www.youtube.com/embed/9BYtAIcyShY"},
+        {id:2,titulo:"2-Instalando Ferramentas - 12:25",video:"https://www.youtube.com/embed/9BYtAIcyShY"},
+        {id:3,titulo:"3-O que é Ionic? - 10:05",video:"https://www.youtube.com/embed/9BYtAIcyShY"},
+        {id:4,titulo:"4-Instalando Android Studio - 08:05",video:"https://www.youtube.com/embed/9BYtAIcyShY"},
+        {id:5,titulo:"5-Primeiro App - 07:05",video:"https://www.youtube.com/embed/9BYtAIcyShY"},
 
 
       ]
@@ -47,11 +47,11 @@ export class HomePage {
         {
 
           id:1,
-          titulo:"1-Introdução ao curso - 12:25",video:"https://www.youtube.com/watch?v=DkWgRaO862o"},
-        {id:2,titulo:"2-Instalando Angular - 12:25",video:"https://www.youtube.com/watch?v=DkWgRaO862o"},
-        {id:3,titulo:"3-O que é Angulat? - 10:05",video:"https://www.youtube.com/watch?v=DkWgRaO862o"},
-        {id:4,titulo:"4-Primeiros Comandos - 08:05",video:"https://www.youtube.com/watch?v=DkWgRaO862o"},
-        {id:5,titulo:"5-Primeira aplicação - 07:05",video:"https://www.youtube.com/watch?v=DkWgRaO862o"},
+          titulo:"1-Introdução ao curso - 12:25",video:"https://www.youtube.com/embed/9BYtAIcyShY"},
+        {id:2,titulo:"2-Instalando Angular - 12:25",video:"https://www.youtube.com/embed/9BYtAIcyShY"},
+        {id:3,titulo:"3-O que é Angulat? - 10:05",video:"https://www.youtube.com/embed/9BYtAIcyShY"},
+        {id:4,titulo:"4-Primeiros Comandos - 08:05",video:"https://www.youtube.com/embed/9BYtAIcyShY"},
+        {id:5,titulo:"5-Primeira aplicação - 07:05",video:"https://www.youtube.com/embed/9BYtAIcyShY"},
        
   
   

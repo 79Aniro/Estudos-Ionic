@@ -17,7 +17,7 @@
   <ion-card>
     <ion-item>
       <div class="video-container">
-          <iframe  src="https://www.youtube.com/embed/DkWgRaO862o" frameborder="0" ></iframe>
+          <iframe  [src]="domSanitizer.bypassSecurityTrustResourceUrl(dados?.video)" frameborder="0" ></iframe>
 
       </div>
 
@@ -33,3 +33,4 @@
   
     </ion-card>
 </ion-content>
+
