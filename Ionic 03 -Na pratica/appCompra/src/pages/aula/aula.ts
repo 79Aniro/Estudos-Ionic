@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IAula } from '../../interfaces/IAula';
 import{DomSanitizer} from "@angular/platform-browser"
 
 /**
@@ -16,7 +17,7 @@ import{DomSanitizer} from "@angular/platform-browser"
 })
 export class AulaPage {
 
-  dados:any;
+  dados:IAula;
   constructor(public navCtrl: NavController, public navParams: NavParams,
     public domSanitizer: DomSanitizer) {
   }

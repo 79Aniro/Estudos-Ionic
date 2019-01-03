@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { AulaPage } from '../aula/aula';
+import { ICurso } from '../../interfaces/ICurso';
 
 /**
  * Generated class for the DetalhePage page.
@@ -16,7 +17,7 @@ import { AulaPage } from '../aula/aula';
 })
 export class DetalhePage {
 
-  dados:any;
+  dados:ICurso;
  
   aulas:any
   constructor(public navCtrl: NavController, public navParams: NavParams) {
