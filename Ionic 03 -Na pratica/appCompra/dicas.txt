@@ -1,0 +1,11 @@
+
+JSON Server
+https://github.com/typicode/json-server
+
+json-server --watch db.json
+
+npm install -g json-server
+Criar arquivo db.json 
+
+///////////////////////////////////////////
+
