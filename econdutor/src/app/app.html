@@ -1,0 +1,43 @@
+<ion-menu [content]="content">
+    <ion-header >
+        <ion-navbar  color="custom">
+      <ion-toolbar>
+        <img [src]="foto" style="
+      width: 80px;
+      height: 95px;
+     max-width: 80px;
+      max-height: 95px;    
+      float:right;
+      margin:0;
+      padding-top: 15px;    
+      padding-right: 15px; " 
+    >
+      </ion-toolbar>
+     <ion-toolbar class="config_dados_usuario">
+      <p style="color:white; margin:-2px;padding: -5px">{{nome}}</p>
+      <P style="color:white; margin:-2px;padding-bottom: 5px;">{{email}}</P>
+     </ion-toolbar>
+    </ion-navbar>
+    </ion-header>
+  
+    <ion-content>
+      <ion-list>
+        <button style="font-size:14px;height: 25px;" menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
+            <ion-icon style="color:#878787;font-size:150%;margin-top: 20px;" [name]="p.icone" item-left></ion-icon>
+          {{p.title}}
+        </button>
+      </ion-list>
+      <p style="border-bottom:solid 1px #878787; margin-left:-25px;margin-top: -5px;"></p>
+     <p style="color:#2b2222;font-size:15px;margin-left:15px;margin-bottom: -2px;">Contato</p>
+     <ion-list>
+        <button style="font-size:14px;height: 25px;" menuClose ion-item *ngFor="let p of pages2" (click)="openPage(p)">
+            <ion-icon style="color:#878787;font-size:150%;margin-top: 20px;" [name]="p.icone" item-left></ion-icon>
+          {{p.title}}
+        </button>
+      </ion-list>
+    </ion-content>
+  
+  </ion-menu>
+  
+  <!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
+  <ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>

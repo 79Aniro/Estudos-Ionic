@@ -1,0 +1,87 @@
+page-financeiro-detalhe {
+
+
+    .menu_config{
+        color: white
+    }
+
+    .config_info1{
+
+        background-color: rgb(255, 255, 255);
+        padding: 5px;
+        border: 1px solid rgb(224, 224, 224);        
+        border-radius: 2px;
+        text-align: center;
+        color:#878787;
+        font-family: "Open Sans Extrabold";        
+         font-style: normal; 
+         font-variant: normal;
+         font-size: 14px;
+        
+    }
+
+    
+    .config_info2{
+
+        background-color: rgb(255, 255, 255);
+        padding: 5px;
+        border: 1px solid rgb(224, 224, 224);
+        border-radius: 2px;
+        text-align: left;
+        color:#878787;
+        font-family: "Open Sans Extrabold";
+        font-size: 14px;
+         font-style: normal; 
+         font-variant: normal;
+         
+    }
+    .config_situacao{
+        font-size: 17px;
+        margin-top:0;
+        margin-bottom: -7px;
+
+    }
+
+    .config_valor_pago{
+        font-size:21px;
+        color:#50b748;
+        padding-top: -10px;
+    }
+
+    .config_valor_apagar{
+        font-size:21px;
+        color:#ffa500;
+        padding-top: -10px;
+    }
+
+    .config_valor_atrasado{
+        font-size:21px;
+        color:#d22114;
+        padding-top: -10px;
+    }
+    .config_forma_pagamento{
+        color:#878787;
+        font-family: "Open Sans Extrabold";
+        font-size: 14px;
+         font-style: normal; 
+         font-variant: normal;
+         margin-bottom: 0;
+         
+    }
+
+    .config_forma_pagamento2{
+        color:#878787;
+        font-family: "Open Sans Extrabold";
+        font-size: 14px;
+         font-style: normal; 
+         font-variant: normal;
+         margin-top: 0;
+    }
+
+    .config_datas_vp{
+      margin-bottom: 0;
+    }
+    .config_datas_vp2{
+        margin-top: 0;
+      }
+}

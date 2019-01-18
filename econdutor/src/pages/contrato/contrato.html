@@ -1,0 +1,29 @@
+<ion-header>
+
+    <ion-navbar color="custom">
+      <button ion-button menuToggle>
+        <ion-icon name="menu" class="menu_config"> </ion-icon>
+      </button>
+      
+        <ion-title class="titulo_config">Contrato</ion-title>
+      
+  
+    </ion-navbar>
+  
+  </ion-header>
+
+
+
+<ion-content padding>
+
+   
+    <ion-item>
+      <button ion-button (click)="abrirPdfLocal()">Contrato PDF</button>
+    </ion-item>
+    <br>
+    <br>
+    <br>
+    <ion-item>
+    <button ion-button block (click)="onOpenPDF()">Open PDF</button>
+  </ion-item>
+</ion-content>

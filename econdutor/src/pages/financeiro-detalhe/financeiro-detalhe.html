@@ -1,0 +1,78 @@
+<ion-header>
+
+    <ion-navbar no-border-bottom color="custom">
+        <button ion-button menuToggle>
+            <ion-icon name="menu" class="menu_config"> </ion-icon>
+        </button>
+
+        <ion-title class="titulo_config">Financeiro</ion-title>
+
+    </ion-navbar>
+
+
+</ion-header>
+
+<ion-content padding>
+
+    <ion-grid>
+        <ion-row class="config_info1">
+            <ion-col col-2>
+
+            </ion-col>
+            <ion-col col-8>
+                <p class="config_situacao" >{{situacao}}</p>
+                <h2 [ngClass]="situacao==='Pago' ?'config_valor_pago':situacao==='Atrasado' ? 'config_valor_atrasado': 'config_valor_apagar' " >{{pago}}</h2>
+            </ion-col>
+            <ion-col col-2>
+
+            </ion-col>
+
+        </ion-row>
+        <ion-row class="config_info2">
+            <ion-col col-12>
+                <p>Descricao</p>
+                <p>{{descricao}}</p>
+            </ion-col>
+
+        </ion-row>
+
+        <ion-row class="config_info2">
+            <ion-col col-12>
+                <p class="config_forma_pagamento">Forma de Pagamento</p>
+                <p class="config_forma_pagamento2">{{forma_pagamento}}</p>
+            </ion-col>
+
+        </ion-row>
+        <ion-row>
+            <ion-col col-6 class="config_info1">
+                <p class="config_datas_vp">Vencimento</p>
+                <p class="config_datas_vp2">{{data_vencimento}}</p>
+            </ion-col>
+
+            <ion-col col-6 class="config_info1">
+                <p class="config_datas_vp">Pagamento</p>
+                <p class="config_datas_vp2">{{data_pagamento}}</p>
+            </ion-col>
+
+        </ion-row>
+
+        <ion-row>
+            <ion-col col-4 class="config_info1">
+                <p class="config_datas_vp">Multa</p>
+                <p class="config_datas_vp2">{{multa}}</p>
+            </ion-col>
+
+            <ion-col col-4 class="config_info1">
+                <p class="config_datas_vp">Juros</p>
+                <p class="config_datas_vp2">{{juros}}</p>
+            </ion-col>
+
+            <ion-col col-4 class="config_info1">
+                <p class="config_datas_vp">Desconto</p>
+                <p class="config_datas_vp2">{{desconto}}</p>
+            </ion-col>
+
+        </ion-row>
+    </ion-grid>
+
+</ion-content>

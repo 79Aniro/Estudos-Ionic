@@ -1,0 +1,28 @@
+<ion-header>
+
+  <ion-navbar color="custom">
+    <button ion-button menuToggle>
+      <ion-icon name="menu" class="menu_config"> </ion-icon>
+    </button>
+
+    <ion-title class="titulo_config">Instruções</ion-title>
+
+
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding >
+  <h2 class="al" >Autoescola Cidade Jardim</h2>
+  
+  <h6 class="al">Instruções Gerais</h6> 
+
+
+<ion-list no-lines>
+    <button  ion-item *ngFor="let item of items" >
+     <p class="lll" text-wrap > {{item?.titulo}}</p>
+    <p class="ll" text-wrap >{{item?.texto}}</p>  
+    </button> 
+  </ion-list>
+</ion-content>

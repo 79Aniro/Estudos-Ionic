@@ -1,0 +1,13 @@
+{
+  "name": "app_ionic",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular",
+  "proxies": [
+    {
+      "path": "/api",
+      "proxyUrl": "http://webservice.econdutorcfc.com.br"
+    }
+  ]
+}

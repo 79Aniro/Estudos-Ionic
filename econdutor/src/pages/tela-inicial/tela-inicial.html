@@ -1,0 +1,152 @@
+<ion-header >
+
+    <ion-navbar no-border-bottom color="custom" >
+        <button ion-button menuToggle>
+            <ion-icon name="menu" class="menu_config"> </ion-icon>
+        </button>
+        
+            <ion-title class="titulo_config" >e-condutor</ion-title>
+        
+    </ion-navbar>
+
+    <ion-segment class="background_segmant" [(ngModel)]="pet" (click)="carregarAgendadas()">
+        <ion-segment-button  style="height:75px; margin-top: 10px" id="texto_agendadas" value="agendadas" >
+            <button ion-button icon-left class="circle_agendadas">{{agendadas_quantidade}}</button>
+            <div style="margin-top: -15px !important;  text-transform: capitalize; font-size: 14px;">
+            {{titulo_agendadas}}
+            </div>
+        </ion-segment-button>
+
+        <ion-segment-button style="height:75px; margin-top: 10px" id="texto_finalizadas" value="finalizadas" >
+                <button ion-button icon-left class="circle_finalizadas">{{finalizadas_quantidade}}</button>
+                <div style="margin-top: -15px !important;  text-transform: capitalize;font-size: 14px;">
+                {{titulo_finalizadas}}
+                </div>
+        </ion-segment-button>
+        <ion-segment-button style="height:75px; margin-top: 10px" id="texto_faltas" value="faltas"  >
+                <button ion-button icon-left class="circle_faltas">{{faltas_quantidade}}</button>
+                <div style="margin-top: -15px !important;  text-transform: capitalize;font-size: 14px;">
+                {{titulo_faltas}}
+                </div>
+        </ion-segment-button>
+        <ion-segment-button style="height:75px; margin-top: 10px" id="texto_canceladas" value="canceladas" >
+                <button ion-button icon-left class="circle_canceladas">{{canceladas_quantidade}}</button>
+                <div style="margin-top: -15px !important; text-transform: capitalize;font-size: 14px; ">
+                {{titulo_canceladas}}
+                </div>
+        </ion-segment-button>
+       
+    </ion-segment>
+
+</ion-header>
+
+
+
+
+
+<ion-content>
+    <div [ngSwitch]="pet">
+        <div *ngSwitchCase="'agendadas'" >
+            <ion-list *ngFor="let item of itens_agendadas" style="margin-top:-5px">
+
+                <ion-grid  >
+                    <ion-row>
+                        <ion-col col-7 class="posicaotexto">
+
+                           <ion-thumbnail item-start (click)="detalheAula(item.hora_inicial,item.hora_final,item.data,item.titulo,item.matricula,item.veiculo,item.instrutor)">
+                                Data: {{item.data}}<br>
+                                Hora: das {{item.hora_inicial}} às {{item.hora_final}}
+                            </ion-thumbnail>
+
+                        </ion-col>
+                        <ion-col col-5 class="posicaoBotao">
+                            <button ion-button class="estilo_botao" [ngClass]="item.titulo==='Agendada'? 'background_botao_agendadas':item.titulo === 'Falta'?'background_botao_faltas':item.titulo==='Iniciada'?'background_botao_iniciada':item.titulo === 'Finalizada'?'background_botao_finalizadas':'background_botao_canceladas'" (click)="detalheAula(item.hora_inicial,item.hora_final,item.data,item.titulo,item.matricula,item.veiculo,item.instrutor)">{{item.titulo}}</button>
+                        </ion-col>
+                    </ion-row>
+                </ion-grid>
+
+                
+            </ion-list>
+        </div>
+
+        <div *ngSwitchCase="'finalizadas'">
+            <ion-list *ngFor="let item of itens_finalizada" style="margin-top:-5px">
+
+
+                <ion-grid>
+
+                    <ion-row>
+
+                        <ion-col col-7 class="posicaotexto">
+
+                            <ion-thumbnail item-start (click)="detalheAula(item.hora_inicial,item.hora_final,item.data,item.titulo,item.matricula,item.veiculo,item.instrutor)">
+                                Data: {{item.data}}<br>
+                                Hora: das {{item.hora_inicial}} às {{item.hora_final}}
+                            </ion-thumbnail>
+
+                        </ion-col>
+                        <ion-col col-5 class="posicaoBotao">
+                            <button ion-button class="estilo_botao" style="background-color:#50b748" (click)="detalheAula(item.hora_inicial,item.hora_final,item.data,item.titulo,item.matricula,item.veiculo,item.instrutor)">{{item.titulo}}</button>
+                        </ion-col>
+                    </ion-row>
+                </ion-grid>
+
+
+
+            </ion-list>
+        </div>
+        
+        <div *ngSwitchCase="'faltas'" >
+            <ion-list *ngFor="let item of itens_falta" style="margin-top:-5px">
+
+
+                <ion-grid>
+
+                    <ion-row>
+
+                        <ion-col col-7 class="posicaotexto">
+
+                            <ion-thumbnail item-start (click)="detalheAula(item.hora_inicial,item.hora_final,item.data,item.titulo,item.matricula,item.veiculo,item.instrutor)">
+                                Data: {{item.data}}<br>
+                                Hora: das {{item.hora_inicial}} às {{item.hora_final}}
+                            </ion-thumbnail>
+
+
+                        </ion-col>
+                        <ion-col col-5 class="posicaoBotao">
+                            <button ion-button class="estilo_botao" style="background-color:#AA00AA" (click)="detalheAula(item.hora_inicial,item.hora_final,item.data,item.titulo,item.matricula,item.veiculo,item.instrutor)">{{item.titulo}}</button>
+                        </ion-col>
+                    </ion-row>
+                </ion-grid>
+
+
+
+            </ion-list>
+        </div>
+        <div *ngSwitchCase="'canceladas'" >
+            <ion-list *ngFor="let item of itens_cancelada" style="margin-top:-5px">
+
+
+                <ion-grid>
+
+                    <ion-row>
+
+                        <ion-col col-7 class="posicaotexto">
+
+                            <ion-thumbnail item-start (click)="detalheAula(item.hora_inicial,item.hora_final,item.data,item.titulo,item.matricula,item.veiculo,item.instrutor)">
+                                Data: {{item.data}}<br>
+                                Hora: das {{item.hora_inicial}} às {{item.hora_final}}
+                            </ion-thumbnail>
+
+                        </ion-col>
+                        <ion-col col-5 class="posicaoBotao">
+                            <button ion-button class="estilo_botao" style="background-color:#878787" (click)="detalheAula(item.hora_inicial,item.hora_final,item.data,item.titulo,item.matricula,item.veiculo,item.instrutor)">{{item.titulo}}</button>
+                        </ion-col>
+                    </ion-row>
+                </ion-grid>
+
+            </ion-list>
+        </div>
+        
+    </div>
+</ion-content>
