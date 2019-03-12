@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+
+import { DomSanitizer } from '@angular/platform-browser';
+
 import { IAula } from '../../interfaces/IAula';
-import{DomSanitizer} from "@angular/platform-browser"
 
 /**
  * Generated class for the AulaPage page.
@@ -16,17 +18,13 @@ import{DomSanitizer} from "@angular/platform-browser"
   templateUrl: 'aula.html',
 })
 export class AulaPage {
-
-  dados:IAula;
-  constructor(public navCtrl: NavController, public navParams: NavParams,
-    public domSanitizer: DomSanitizer) {
+  item: IAula;
+  constructor(public navCtrl: NavController, public navParams: NavParams, public domSanitizer: DomSanitizer) {
+    this.item = this.navParams.get('dados');
   }
 
   ionViewDidLoad() {
-    this.dados= this.navParams.get("item");
-    console.log(this.dados)
+    console.log('ionViewDidLoad AulaPage');
   }
 
 }
-
-//Dom sanitizer 

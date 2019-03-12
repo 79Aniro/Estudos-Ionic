@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { AulaPage } from '../aula/aula';
-import { ICurso } from '../../interfaces/ICurso';
 
+import { ICurso } from '../../interfaces/ICurso';
 /**
  * Generated class for the DetalhePage page.
  *
@@ -17,25 +17,19 @@ import { ICurso } from '../../interfaces/ICurso';
 })
 export class DetalhePage {
 
-  dados:ICurso;
- 
-  aulas:any
+  item:ICurso;
+
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    this.item = this.navParams.get('dados');
 
   }
 
   ionViewDidLoad() {
-    
-    this.dados= this.navParams.get("item");
-    
-    
-    console.log(this.dados);
-    
+    console.log('ionViewDidLoad DetalhePage');
   }
-  abreAula(item: any) {
 
-    this.navCtrl.push(AulaPage, { item: item });
-
+  abreAula(item){
+    this.navCtrl.push(AulaPage,{dados:item});
   }
-  
+
 }

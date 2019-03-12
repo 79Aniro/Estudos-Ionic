@@ -8,4 +8,8 @@ npm install -g json-server
 Criar arquivo db.json 
 
 ///////////////////////////////////////////
+Rodar
+json-server --watch db.json
+
+
 

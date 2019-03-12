@@ -13,24 +13,22 @@
 </ion-header>
 
 
-<ion-content >
+<ion-content>
   <ion-card>
     <ion-item>
       <div class="video-container">
-          <iframe  [src]="domSanitizer.bypassSecurityTrustResourceUrl(dados?.video)" frameborder="0" ></iframe>
-
+        <iframe [src]="domSanitizer.bypassSecurityTrustResourceUrl(item.video)" frameborder="0"></iframe>
       </div>
-
     </ion-item>
 
   </ion-card>
 
   <ion-card>
-      <ion-item>
-        <p>{{dados?.titulo}}</p>
-  
-      </ion-item>
-  
-    </ion-card>
-</ion-content>
+    <ion-item>
+      <p>{{ item.ordem }} - {{ item.titulo }}</p>
+      <p>Tempo: {{ item.tempo }}</p>
+    </ion-item>
 
+  </ion-card>
+
+</ion-content>

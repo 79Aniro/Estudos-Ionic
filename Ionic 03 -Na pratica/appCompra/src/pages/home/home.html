@@ -3,25 +3,23 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Cursos</ion-title>
+    <ion-title>Cursos 4</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  
+
+
   <ion-card *ngFor="let item of lista">
-    <img [src]= "item.imagem"/>
+    <img [src]="item.imagem"/>
     <ion-card-content>
       <ion-card-title>
-        {{item.titulo}}
+        {{ item.titulo }}
         </ion-card-title>
       <p>
-    {{item.descricao}}
+        {{ item.descricao }}
       </p>
-      <button ion-button block  (click)="abreDetalhe(item)">Mais</button>
-      <button ion-button block color="secondary">R$ {{item.valor_txt}}</button>
+      <button ion-button block (click)="abreDetalhe(item)">Mais</button>
+      <button ion-button color="secondary" block>R${{ item.valor_txt }}</button>
     </ion-card-content>
   </ion-card>
-
-
-</ion-content>

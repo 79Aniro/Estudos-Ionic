@@ -13,6 +13,12 @@ export class CursosProvider {
   constructor(public http: HttpClient) {
     console.log('Hello CursosProvider Provider');
   }
+  allTeste(){
+    return this.http.get<ICurso[]>('http://localhost:3000/cursos');
+  }
+  addTeste(data:ICurso){
+    return this.http.post<ICurso>('http://localhost:3000/cursos',data);
+  }
 
   all(){
 
