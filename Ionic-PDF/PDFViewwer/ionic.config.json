@@ -1,0 +1,7 @@
+{
+  "name": "PDFViewwer",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}
