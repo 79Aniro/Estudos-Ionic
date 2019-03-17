@@ -20,6 +20,16 @@ export class CursosProvider {
     return this.http.post<ICurso>('http://localhost:3000/cursos',data);
   }
 
+  editTeste(data:ICurso){
+    return this.http.put<ICurso>('http://localhost:3000/cursos/'+data.id,data);
+  }
+  deleteTeste(data:ICurso){
+    return this.http.delete<ICurso>('http://localhost:3000/cursos/'+data.id);
+  }
+
+  showTeste(data:ICurso){
+    return this.http.get<ICurso>('http://localhost:3000/cursos/'+data.id);
+  }
   all(){
 
 
@@ -30,7 +40,7 @@ export class CursosProvider {
         descricao: "Aprenda Ionic na pratica",
         valor: 23.90,
         valor_txt: '23,90',
-        imagem: "https://cdn-images-1.medium.com/max/1200/1*jxlCALz6A7tfrC7nC9W9og.jpeg",
+        imagem: "https://cdn-images-1.medium.com/max/1200/0*CpskBUWlYOFSc7ur.png",
         sobre_curso: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.Vivamus pretium dui in nibh fringilla, in auctor sapien fringilla. Aenean eget nibh turpis. Aliquam erat volutpat. Curabitur semper sit amet lorem in fringilla.",
         aulas: [
   

@@ -12,13 +12,15 @@ import { DetalhePage } from '../pages/detalhe/detalhe';
 import { AulaPage } from '../pages/aula/aula';
 import { CursosProvider } from '../providers/cursos/cursos';
 import { HttpClientModule } from '@angular/common/http';
+import { CadastroPage } from '../pages/cadastro/cadastro';
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
     DetalhePage,
-    AulaPage
+    AulaPage,
+    CadastroPage
     
   ],
   imports: [
@@ -32,7 +34,8 @@ import { HttpClientModule } from '@angular/common/http';
     MyApp,
     HomePage,
     DetalhePage,
-    AulaPage
+    AulaPage,
+    CadastroPage
     
   ],
   providers: [

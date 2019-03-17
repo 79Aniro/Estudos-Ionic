@@ -29,11 +29,12 @@ export class HomePage {
     });
 
     let data:ICurso = {
-      "titulo":"Curso de Ionic ",
+      "id":3,
+      "titulo":"Curso de Ionic-Editado ",
       "descricao":"Aprenda Ionic na Prática",
       "valor":23.90,
       "valor_txt":"23,90",
-      "imagem":"https://digitalscientists.com/assets/case-blocks/logo-ionic-framework-thick.svg",
+      "imagem":"https://cdn-images-1.medium.com/max/1200/0*CpskBUWlYOFSc7ur.png",
       "aulas":[
         {
           "id":1,
@@ -52,13 +53,27 @@ export class HomePage {
       ]
     };
 
-    this.cursoProvider.addTeste(data).subscribe(res => {
+   /* this.cursoProvider.addTeste(data).subscribe(res => {
+      console.log(res);
+    }, erro => {
+      console.log("Erro: " + erro.message);
+    });
+    this.cursoProvider.editTeste(data).subscribe(res => {
       console.log(res);
     }, erro => {
       console.log("Erro: " + erro.message);
     });
 
-
+    this.cursoProvider.deleteTeste(data).subscribe(res => {
+      console.log(res);
+    }, erro => {
+      console.log("Erro: " + erro.message);
+    })*/
+    this.cursoProvider.showTeste(data).subscribe(res => {
+      console.log(res);
+    }, erro => {
+      console.log("Erro: " + erro.message);
+    })
   }
 
   abreDetalhe(item){
