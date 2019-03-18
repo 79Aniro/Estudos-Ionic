@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { HomePage } from '../home/home';
 import { IUsuario } from '../../interfaces/IUsuario';
+import { UsuariosProvider } from '../../providers/usuarios/usuarios';
 
 /**
  * Generated class for the CadastroPage page.
@@ -24,7 +25,9 @@ export class CadastroPage {
 
   }
   
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController,
+     public navParams: NavParams,
+     public usuarioProvider:UsuariosProvider) {
   }
 
   ionViewDidLoad() {
@@ -36,6 +39,13 @@ export class CadastroPage {
   }
   addUsuario(){
 
-    console.log(this.usuario)
+    
+    this.usuarioProvider.addUsuario(this.usuario).subscribe(
+      response=>{
+        console.log(response);
+      },
+      erro=>{
+        console.log(erro.message);
+      });
   }
 }

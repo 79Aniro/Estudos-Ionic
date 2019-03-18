@@ -13,6 +13,7 @@ import { AulaPage } from '../pages/aula/aula';
 import { CursosProvider } from '../providers/cursos/cursos';
 import { HttpClientModule } from '@angular/common/http';
 import { CadastroPage } from '../pages/cadastro/cadastro';
+import { UsuariosProvider } from '../providers/usuarios/usuarios';
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import { CadastroPage } from '../pages/cadastro/cadastro';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     CursosProvider,
+    UsuariosProvider,
     
   ]
 })
