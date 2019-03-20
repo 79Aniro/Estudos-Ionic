@@ -30,10 +30,21 @@ export class PerfilPage {
     password: "123456",
     id: 2
    };
-   this.usuarioProvider.showUsuario(usuario).
-   subscribe(response=>{
-    this.usuario=response;
-   });
+   this.usuarioProvider.getStorage('usuario').then(usuario=>{
+      if(usuario){
+        this.usuario=usuario;
+        this.usuarioProvider.showUsuario(usuario).
+        subscribe(response=>{
+         this.usuario=response;
+        });
+      }
+      else{
+
+this.voltar();
+      }
+
+   })
+  
    
   }
 
