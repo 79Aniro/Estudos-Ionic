@@ -75,14 +75,14 @@
   ],
   "usuarios": [
     {
-      "name": "Aniro",
+      "name": "Aniro Correia ",
       "email": "aniro@teste",
       "password": "123456",
       "id": 1
     },
     {
-      "name": "Aniro",
-      "email": "aniro@teste",
+      "name": "Joao da Silva Neto",
+      "email": "joao@teste",
       "password": "123456",
       "id": 2
     },

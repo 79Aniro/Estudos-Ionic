@@ -12,7 +12,16 @@ export class UsuariosProvider {
    // this.headers={"headers":{"authorization":"Bearer "+this.token}};
   }
 
+
+  showUsuario(data:IUsuario){
+    console.log("entrou");
+    return this.http.get<IUsuario>(this.url+'usuarios/'+data.id);
+  }
   addUsuario(data:IUsuario){
     return this.http.post<IUsuario>(this.url+'usuarios',data);
+  }
+
+  editUsuario(data:IUsuario){
+    return this.http.put<IUsuario>(this.url+'usuarios/'+data.id,data);
   }
 }

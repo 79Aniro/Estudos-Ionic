@@ -4,19 +4,12 @@ import { HomePage } from '../home/home';
 import { IUsuario } from '../../interfaces/IUsuario';
 import { UsuariosProvider } from '../../providers/usuarios/usuarios';
 
-/**
- * Generated class for the CadastroPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-
 @IonicPage()
 @Component({
-  selector: 'page-cadastro',
-  templateUrl: 'cadastro.html',
+  selector: 'page-perfil',
+  templateUrl: 'perfil.html',
 })
-export class CadastroPage {
+export class PerfilPage {
 
   usuario: IUsuario={
     name:'',
@@ -31,18 +24,28 @@ export class CadastroPage {
   }
 
   ionViewDidLoad() {
-    
+   let usuario={
+    name: "Aniro",
+    email: "aniro@teste",
+    password: "123456",
+    id: 2
+   };
+   this.usuarioProvider.showUsuario(usuario).
+   subscribe(response=>{
+    this.usuario=response;
+   });
+   
   }
 
   voltar(){
     this.navCtrl.setRoot(HomePage);
   }
-  addUsuario(){
+  editarUsuario(){
 
     
-    this.usuarioProvider.addUsuario(this.usuario).subscribe(
+    this.usuarioProvider.editUsuario(this.usuario).subscribe(
       response=>{
-        console.log(response);
+        this.usuario=response;
       },
       erro=>{
         console.log(erro.message);
