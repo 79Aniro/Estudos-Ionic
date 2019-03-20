@@ -19,7 +19,7 @@ export class CursosProvider {
   addTeste(data:ICurso){
     return this.http.post<ICurso>('http://localhost:3000/cursos',data);
   }
-
+ 
   editTeste(data:ICurso){
     return this.http.put<ICurso>('http://localhost:3000/cursos/'+data.id,data);
   }
