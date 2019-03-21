@@ -19,33 +19,43 @@ export class MyApp {
 
   rootPage: any = HomePage;
 
-  pages1: Array<{title: string, component: any}>;
-  pages2: Array<{title: string, component: any}>;
+  pages1: Array<{ title: string, component: any }>;
+  pages2: Array<{ title: string, component: any }>;
 
   constructor(public platform: Platform,
-     public statusBar: StatusBar, 
-     public splashScreen: SplashScreen,
-     public usuariosProvider:UsuariosProvider,
-     public menuCtrl: MenuController) {
+    public statusBar: StatusBar,
+    public splashScreen: SplashScreen,
+    public usuariosProvider: UsuariosProvider,
+    public menuCtrl: MenuController) {
     this.initializeApp();
 
     // used for an example of ngFor and navigation
     this.pages1 = [
-      { title: 'Home', component: HomePage },    
+      { title: 'Home', component: HomePage },
       { title: 'Entrar', component: EntrarPage },
       { title: 'Cadastro', component: CadastroPage },
-      
-   
-      
+
+
+
     ];
     this.pages2 = [
-      { title: 'Home', component: HomePage },     
+      { title: 'Home', component: HomePage },
       { title: 'Perfil', component: PerfilPage },
-      
-      
-   
-      
+
     ];
+
+    this.usuariosProvider.getStorage('usuario').then(usuario => {
+
+      if (usuario) {
+        this.menuCtrl.enable(false, 'usuarioSemLogin');
+        this.menuCtrl.enable(true, 'usuarioComLogin');
+      }
+      else {
+        this.menuCtrl.enable(true, 'usuarioSemLogin');
+        this.menuCtrl.enable(false, 'usuarioComLogin');
+      }
+
+    })
 
   }
 
@@ -64,9 +74,9 @@ export class MyApp {
     this.nav.setRoot(page.component);
   }
 
-  sair(){
+  sair() {
 
-    this.usuariosProvider.setStorage('usuario',null);
+    this.usuariosProvider.setStorage('usuario', null);
     this.ativaMenuSemLogin();
 
   }

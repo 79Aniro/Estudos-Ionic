@@ -16,7 +16,7 @@ export class UsuariosProvider {
 
 
   showUsuario(data:IUsuario){
-    console.log("entrou");
+   
     return this.http.get<IUsuario>(this.url+'usuarios/'+data.id);
   }
   addUsuario(data:IUsuario){
