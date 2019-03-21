@@ -11,5 +11,10 @@ Criar arquivo db.json
 Rodar
 json-server --watch db.json
 
+//////////////////////////////////////////////
+
+Storage
+ionic cordova plugin add cordova-sqlite-storage
+
 
 

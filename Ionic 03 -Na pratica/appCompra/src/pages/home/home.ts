@@ -70,7 +70,7 @@ export class HomePage {
       console.log("Erro: " + erro.message);
     })*/
     this.cursoProvider.showTeste(data).subscribe(res => {
-      console.log(res);
+      
     }, erro => {
       console.log("Erro: " + erro.message);
     })

@@ -7,6 +7,8 @@ import { IUsuario } from '../../interfaces/IUsuario';
 
 import { UsuariosProvider } from '../../providers/usuarios/usuarios';
 
+import { MenuController } from 'ionic-angular';
+
 /**
  * Generated class for the EntrarPage page.
  *
@@ -24,7 +26,8 @@ export class EntrarPage {
 
   constructor(public navCtrl: NavController, 
     public navParams: NavParams,
-     public usuariosProvider:UsuariosProvider) {
+     public usuariosProvider:UsuariosProvider,
+     public menuCtrl: MenuController) {
   }
 
   ionViewDidLoad() {
@@ -35,10 +38,16 @@ export class EntrarPage {
     this.navCtrl.setRoot(HomePage);
   }
 
+  ativaMenuLogin() {
+    this.menuCtrl.enable(true, 'usuarioComLogin');
+    this.menuCtrl.enable(false, 'usuarioSemLogin');
+  }
   loginUsuario(){
     this.usuariosProvider.loginUsuario(this.usuario).subscribe(res => {
       this.usuariosProvider.setStorage('usuario',res);
-      console.log(res);
+      this.ativaMenuLogin();
+      this.navCtrl.setRoot(HomePage);
+      
     }, erro => {
       console.log("Erro: " + erro.message);
     });
