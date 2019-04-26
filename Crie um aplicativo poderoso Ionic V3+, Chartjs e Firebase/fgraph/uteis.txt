@@ -1,0 +1,2 @@
+
+npm i chart.js firebase angularfire2

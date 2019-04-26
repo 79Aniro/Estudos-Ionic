@@ -1,0 +1,28 @@
+{
+  "vendas":{
+    "x1":{
+      "valor":30.26,
+      "unidade":"unidade1"
+    },
+    "x2":{
+      "valor":26.26,
+      "unidade":"unidade2"
+    },
+    "x3":{
+      "valor":10.26,
+      "unidade":"unidade3"
+    },
+    "x4":{
+      "valor":15.78,
+      "unidade":"unidade4"
+    },
+    "x5":{
+      "valor":12.99,
+      "unidade":"unidade5"
+    },
+    "x6":{
+      "valor":45.36,
+      "unidade":"unidade6"
+    }
+  }
+}
