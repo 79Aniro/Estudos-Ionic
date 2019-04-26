@@ -1,2 +1,5 @@
 
+Instalando bibliotecas
 npm i chart.js firebase angularfire2
+
+Inicializando o firebase no ionic
