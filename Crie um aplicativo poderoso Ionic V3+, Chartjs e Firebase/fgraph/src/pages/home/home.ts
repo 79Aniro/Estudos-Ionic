@@ -33,9 +33,40 @@ export class HomePage {
 
   objChartJs:any;
   ObjChartJs2:any;
+  chartData=null;
   constructor(public navCtrl: NavController,
   private db:AngularFireDatabase,
   public loadingCtrl:LoadingController) {
+
+  }
+
+  coletarValoresGrafico(){
+
+    let acumuladoPorUnidade={
+
+      "unidade1":null,
+      "unidade2":null,
+      "unidade3":null,
+      "unidade4":null
+
+    }
+
+    for(let venda of this.chartData){
+      acumuladoPorUnidade[venda.unidade]+=venda.valor;
+    }
+
+    return Object.keys(acumuladoPorUnidade).map(a=>acumuladoPorUnidade[a]);
+  }
+
+  criarGrafico(data){
+
+  }
+
+  atualizarGrafico(data){
+
+  }
+
+  ionViewDidLoad(){
 
   }
 
