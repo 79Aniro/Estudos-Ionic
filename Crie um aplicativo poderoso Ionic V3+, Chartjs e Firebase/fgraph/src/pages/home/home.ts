@@ -64,10 +64,49 @@ export class HomePage {
 
   atualizarGrafico(data){
 
+    //Atualizei atributo do controller
+    this.chartData=data;
+
+    //Calculo dos valores e armazena
+    let chartData= this.coletarValoresGrafico();
+
+    //Atualização valores chartJs
+    this.objChartJs.data.datasets.forEach((dataset)=>{
+      dataset.data=chartData;
+    });
+    this.ObjChartJs2.data.datasets.forEach((dataset)=>{
+      dataset.data=chartData;
+    });
+
+    this.objChartJs.update();
+    this.ObjChartJs2.update();
   }
 
   ionViewDidLoad(){
 
+    let loader= this.loadingCtrl.create({
+      content:"Aguarde ...",
+      duration:3000
+    });
+
+    loader.present();
+
+    this.ref=this.db.list("vendas");
+
+    this.ref.valueChanges().subscribe(result=>{
+
+      //Retira o aguarde
+      loader.dismiss();
+
+      //Se existe dados eu atualizo ,senão eu crio
+
+      if(this.chartData){
+        this.atualizarGrafico(result);
+      }
+      else{
+        this.criarGrafico(result);
+      }
+    })
   }
 
 }
