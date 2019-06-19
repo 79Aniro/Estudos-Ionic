@@ -13,14 +13,14 @@
   <ion-list>
  
      
-      <ion-card *ngFor="let item of plantoes" (click)="detalhePlantao(item.id)">
+      <ion-card *ngFor="let item of plantoes" (click)="detalhePlantao(item.id)" [ngClass]="item.troca==='true'? 'troca':'naotroca'" >
         <ion-card-header>
          <p>Data: {{item.dataString}} </p>
         </ion-card-header>
         <ion-card-content>
          <p>Escalado: {{item.escalado}}</p>
          <p>Carga Horária: {{item.cargaHoraria}}</p>
-         <p *ngIf="item.troca!=null" >Troca {{item.troca}}</p> 
+         <p *ngIf="item.troca!=false" >Troca {{item.trocaTexto}}</p> 
          <p *ngIf="item.troca!=null" > Novo Escalado {{item.novoEscalado}}</p> 
          <p *ngIf="item.troca!=null" >Seu plantão será: {{item.novaDataString}}</p> 
         </ion-card-content>

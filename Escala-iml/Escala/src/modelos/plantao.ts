@@ -6,6 +6,8 @@ export interface PlantaoDTO{
     escalado:string;
     troca:boolean;
     trocaTexto:string;
+    trocado:boolean;
+    trocadoTexto:string
     novoEscalado:string;
     novaData:number;
     novaDataString:string;
@@ -21,6 +23,8 @@ export function buildPlantao(){
     escalado:'',
     troca:null,
     trocaTexto:'',
+    trocado:null,
+    trocadoTexto:null,
     novoEscalado:'',
     novaData:null,
     novaDataString:'',

@@ -34,6 +34,33 @@
     </ion-item>
 
     <ion-item>
+      <ion-label floating>Troca</ion-label>
+      <ion-select [(ngModel)]="troca"  >
+        <ion-option value="false"(ionSelect)="fechaNovoEscalado()">Não</ion-option>
+        <ion-option value="true" (ionSelect)="abreNovoEscalado()">Sim</ion-option>
+        
+      </ion-select>
+    </ion-item>
+
+    <ion-item *ngIf="abreNovoEsc==1" >   
+      <ion-input type="text" [(ngModel)]="novoEscalado"  id="novoEscalado" placeholder="Com quem?"></ion-input>
+    </ion-item>
+
+    <ion-item *ngIf="abreNovoEsc==1">
+      <ion-label floating>Data já definida para troca?</ion-label>
+      <ion-select [(ngModel)]="trocado"  >
+        <ion-option value="false" (ionSelect)="fechaNovaDataS()">Não</ion-option>
+        <ion-option value="true" (ionSelect)="abreNovaDataS()">Sim</ion-option>
+        
+      </ion-select>
+    </ion-item>
+
+    <ion-item *ngIf="abreNovaData==1">
+      <ion-label placeholder="Data"></ion-label>
+      <ion-input type="date" [(ngModel)]="dttroca"  id="dataPlantaoTroca"></ion-input>
+    </ion-item>
+
+    <ion-item>
       <button ion-button round block (click)="gravar()" >Gravar</button>
     </ion-item>
   

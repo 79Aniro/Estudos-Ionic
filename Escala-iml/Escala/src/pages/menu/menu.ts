@@ -36,6 +36,7 @@ export class MenuPage {
    let i= this.localStorage.getId();
     
     this.localStorage.setId(i+1);
+    console.log("plantoes");
   }
 
  

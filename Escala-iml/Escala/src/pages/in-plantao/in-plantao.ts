@@ -19,10 +19,15 @@ export class InPlantaoPage {
 
 public plantao :PlantaoDTO=buildPlantao();
 dt:Date;
+dttroca:Date;
 plantonista:string;
 cargaHoraria:string;
 plantoes:PlantaoDTO[]=[]
 id:number;
+troca:boolean=false;
+novoEscalado:string
+abreNovoEsc:number=0;
+abreNovaData:number=0;
   constructor(public navCtrl: NavController,
      public navParams: NavParams,
      public localStorage:StorageProvider) {
@@ -44,16 +49,48 @@ id:number;
   let dtt= new Date(this.dt);
   this.plantao.dataString=dtt.toLocaleDateString();
   this.plantao.escalado=this.plantonista;
+  this.plantao.troca=this.troca;
+  if(this.troca==true){
+    this.plantao.trocaTexto="Sim"
+    this.plantao.novoEscalado=this.novoEscalado;
+  }
+  else{
+    this.plantao.trocaTexto="Não";
+    this.plantao.novoEscalado=""
+  }
+
+  if(this.novoEscalado!=''){
+    this.plantao.novoEscalado=this.novoEscalado;
+  }
   this.plantao.cargaHoraria=this.cargaHoraria;
   this.plantao.id=this.id;
   this.id=this.id+1;
   this.localStorage.setId(this.id);
   this.plantoes.push(this.plantao);
+  console.log(this.plantao);
   this.plantao=buildPlantao()
   this.localStorage.setPlantoes(this.plantoes)
   this.navCtrl.setRoot(this.navCtrl.getActive().component);
   
+  this.abreNovoEsc=0
     
+  }
+  abreNovoEscalado(){
+
+    this.abreNovoEsc=1;
+   
+  }
+  fechaNovoEscalado(){
+
+    this.abreNovoEsc=0;
+   
+  }
+  abreNovaDataS(){
+    this.abreNovaData=1
+  }
+
+  fechaNovaDataS(){
+    this.abreNovaData=0;
   }
 
 }
