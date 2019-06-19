@@ -1,0 +1,41 @@
+
+<ion-header>
+
+  <ion-navbar>
+      <button ion-button menuToggle>
+          <ion-icon name="menu"> </ion-icon>
+      </button>
+      <ion-title>Inserir Plantao</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+
+  <ion-list>
+
+    <ion-item>
+      <ion-label floating>Plantonista</ion-label>
+      <ion-input type="text" [(ngModel)]="plantonista" ></ion-input>
+    </ion-item>
+  
+    <ion-item>
+      <ion-label placeholder="Data"></ion-label>
+      <ion-input type="date" [(ngModel)]="dt"  id="dataPlantao"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>Carga Horaria</ion-label>
+      <ion-select [(ngModel)]="cargaHoraria"  >
+        <ion-option value="24 horas">24 horas</ion-option>
+        <ion-option value="12 Horas">12 Horas</ion-option>
+        <ion-option value="Expediente">Expediente</ion-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <button ion-button round block (click)="gravar()" >Gravar</button>
+    </ion-item>
+  
+  </ion-list>
+</ion-content>
