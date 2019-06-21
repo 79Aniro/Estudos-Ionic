@@ -1,1 +1,14 @@
-<ion-nav [root]="rootPage"></ion-nav>
+<ion-menu [content]="content">
+
+<ion-content>
+<ion-list>
+    <button menuClose ion-item (click)="abrirPagina()">
+        Configurar Meta
+    </button>
+</ion-list>
+
+</ion-content>
+
+</ion-menu>
+
+<ion-nav #menuLink [root]="rootPage"></ion-nav>

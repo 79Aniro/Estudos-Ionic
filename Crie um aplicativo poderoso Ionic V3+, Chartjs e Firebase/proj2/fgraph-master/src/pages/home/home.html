@@ -1,0 +1,43 @@
+<ion-header>
+    <ion-toolbar color="carrot">
+        <!-- Botao esquerda (abre menu) -->
+        <button ion-button menuToggle left>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+
+        <ion-title>
+            Estatísticas
+        </ion-title>
+
+        <!-- Botao direita -->
+        <ion-buttons end>
+            <button ion-button icon-only (click)="sair()">
+                <ion-icon name="log-out"></ion-icon>
+            </button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+    <!-- Grafico 1 -->
+    <ion-card>
+        <ion-card-header>
+            Vendas por unidade
+        </ion-card-header>
+        <ion-card-content>
+            <canvas #graficoCanvas1></canvas>
+        </ion-card-content>
+    </ion-card>
+
+    <!-- Grafico 2 -->
+    <ion-card>
+        <ion-card-header>
+            Meta de vendas
+        </ion-card-header>
+        <ion-card-content>
+            <canvas class="hack" #graficoCanvas2></canvas>
+        </ion-card-content>
+    </ion-card>
+
+</ion-content>

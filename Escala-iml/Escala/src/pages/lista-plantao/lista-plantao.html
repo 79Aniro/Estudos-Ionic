@@ -1,0 +1,31 @@
+<ion-header>
+
+  <ion-navbar>
+      <button ion-button menuToggle>
+          <ion-icon name="menu"> </ion-icon>
+      </button>
+      <ion-title>Lista Plantões</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+ 
+     
+      <ion-card *ngFor="let item of plantoes" (click)="detalhePlantao(item)" [ngClass]="item.troca==='true'? 'troca':'naotroca'" >
+        <ion-card-header>
+         <p>Data: {{item.dataString}} </p>
+        </ion-card-header>
+        <ion-card-content>
+         <p>Escalado: {{item.escalado}}</p>
+         <p>Carga Horária: {{item.cargaHoraria}}</p>
+         <p *ngIf='item.troca!="false" ' >Troca {{item.trocaTexto}}</p> 
+         <p *ngIf='item.troca!="false" '> Novo Escalado {{item.novoEscalado}}</p> 
+         <p *ngIf='item.troca!="false"' >Seu plantão será: {{item.novaDataString}}</p> 
+        </ion-card-content>
+      </ion-card>
+      
+    
+  </ion-list>
+</ion-content>
