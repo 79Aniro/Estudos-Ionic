@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { PlantaoDTO } from '../../modelos/plantao';
 import { STORAGE_KEYS } from '../../config/storage_keys.config';
 import { ReferenciaIdDTO, buildReferenciaIdDTO } from '../../modelos/referecia_id';
+import { UsuarioDTO } from '../../modelos/usuario-dto';
 
 
 @Injectable()
@@ -27,6 +28,20 @@ export class StorageProvider {
   
  }
 
+ setusuario(usuario:UsuarioDTO){
+
+   localStorage.setItem(STORAGE_KEYS.usuario,JSON.stringify(usuario));
+ }
+
+ getUsuario(){
+   let usuario= localStorage.getItem(STORAGE_KEYS.usuario);
+   let us=JSON.parse(usuario);
+   return us;
+ }
+ deleteUsuario(){
+
+  localStorage.removeItem(STORAGE_KEYS.usuario);
+ }
 
  getId(){
    let id= localStorage.getItem(STORAGE_KEYS.referencia_id);

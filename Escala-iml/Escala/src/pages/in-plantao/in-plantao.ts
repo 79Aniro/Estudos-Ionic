@@ -2,6 +2,7 @@ import { Component, ElementRef } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { PlantaoDTO, buildPlantao } from '../../modelos/plantao';
 import { StorageProvider } from '../../providers/storage/storage';
+import { UsuarioDTO } from '../../modelos/usuario-dto';
 
 /**
  * Generated class for the InPlantaoPage page.
@@ -37,6 +38,8 @@ abreNovaData:number=0;
    
     this.plantoes=this.localStorage.getPlantoes();
     this.id=this.localStorage.getId();
+    let us:UsuarioDTO=this.localStorage.getUsuario();
+    this.plantonista=us.apelido;
     
     console.log(this.plantoes)
   }
@@ -44,10 +47,13 @@ abreNovaData:number=0;
   gravar(){
 
    let dat= new Date(this.dt);
+ 
+   let dat2=dat.setHours(24);
+   let dat3= new Date(dat2);
     
-  this.plantao.data=dat.getTime();
-  let dtt= new Date(this.dt);
-  this.plantao.dataString=dtt.toLocaleDateString();
+  this.plantao.data=dat3.getMilliseconds();
+  
+  this.plantao.dataString=dat3.toLocaleDateString();
   this.plantao.escalado=this.plantonista;
   this.plantao.troca=this.troca;
   if(this.troca=='true' ){

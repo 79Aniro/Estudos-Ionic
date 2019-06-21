@@ -20,9 +20,9 @@
         <ion-card-content>
          <p>Escalado: {{item.escalado}}</p>
          <p>Carga Horária: {{item.cargaHoraria}}</p>
-         <p *ngIf='item.troca!="false" ' >Troca {{item.trocaTexto}}</p> 
-         <p *ngIf='item.troca!="false" '> Novo Escalado {{item.novoEscalado}}</p> 
-         <p *ngIf='item.troca!="false"' >Seu plantão será: {{item.novaDataString}}</p> 
+         <p *ngIf='item.troca!="false" || item.trocaTexto!="Não"' >Troca {{item.trocaTexto}}</p> 
+         <p *ngIf='item.troca!="false" && item.novoEscalado!=""'> Novo Escalado {{item.novoEscalado}}</p> 
+         <p *ngIf='item.troca!="false" && item.trocadoTexto!="Não"'>Seu plantão será: {{item.novaDataString}}</p> 
         </ion-card-content>
       </ion-card>
       

@@ -3,6 +3,9 @@ import { Nav,Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { MenuPage } from '../pages/menu/menu';
+import { StorageProvider } from '../providers/storage/storage';
+import { UsuarioDTO, buildUsuarioDTO } from '../modelos/usuario-dto';
+import { STORAGE_KEYS } from '../config/storage_keys.config';
 
 
 @Component({
@@ -14,9 +17,11 @@ export class MyApp {
   rootPage: string ;
   pages: Array<{title: string, component: string}>;
 
+  usuario:UsuarioDTO=buildUsuarioDTO();
   constructor(public platform: Platform,
     public statusBar: StatusBar, 
-    public splashScreen: SplashScreen,) {
+    public splashScreen: SplashScreen,
+    public localStorage:StorageProvider) {
    this.initializeApp();
 
     // used for an example of ngFor and navigation
@@ -24,10 +29,23 @@ export class MyApp {
       { title: 'Menu', component: 'MenuPage' },        
       { title: 'Insere Plantao', component: 'InPlantaoPage' },
       { title: 'Lista de Plantões', component: 'ListaPlantaoPage' },
+      { title: 'Dados Pessoais', component: 'DadosPessoaisPage' },
+
+    
    
       
      
     ];
+
+    this.usuario=this.localStorage.getUsuario();
+
+    if(this.usuario!=null){
+     this.rootPage='MenuPage'
+    }
+ 
+      else{
+        this.rootPage='DadosPessoaisPage';
+      }
   }
 
   initializeApp() {
@@ -38,9 +56,15 @@ export class MyApp {
       this.splashScreen.hide();
     });
 
-   
+  
 
-      this.rootPage='MenuPage'
+   if(localStorage.getItem(STORAGE_KEYS.usuario)!=null){
+    this.rootPage='MenuPage'
+   }
+
+     else{
+       this.rootPage='DadosPessoaisPage';
+     }
     
    
   }
@@ -52,8 +76,15 @@ export class MyApp {
       case 'Menu':      
       this.nav.setRoot('MenuPage');
       break;
-      case 'In_Plantao':    
+      case 'Insere Plantao':    
       this.nav.setRoot('InPlantaoPage');
+      break;
+      case 'Lista de Plantões':    
+      this.nav.setRoot('ListaPlantaoPage');
+      break;
+      case 'Dados Pessoais':    
+      this.nav.setRoot('DadosPessoaisPage');
+      break;
      
 
       default:
