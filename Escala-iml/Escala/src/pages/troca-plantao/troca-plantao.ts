@@ -23,6 +23,7 @@ export class TrocaPlantaoPage {
   idref = 0;
   trocadoV: string = "false"
   usuario = buildUsuarioDTO();
+  plantV1 = buildPlantao();
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
     public localStorage: StorageProvider) {
@@ -92,7 +93,7 @@ export class TrocaPlantaoPage {
             this.plantoes[i].novoEscalado = this.plantao.novoEscalado;
             this.plantoes[i].troca = 'true';
             this.plantoes[i].trocaTexto = 'Sim';
-            this.plantoes[i].novaData = dt3.getMilliseconds();
+            this.plantoes[i].novaData = dt2;
             this.plantoes[i].novaDataString = dt3.toLocaleDateString();
             break;
           }
@@ -103,7 +104,7 @@ export class TrocaPlantaoPage {
         plant.id = this.idref++;
         plant.escalado = this.usuario.apelido;
 
-        plant.data = dt3.getMilliseconds();
+        plant.data = dt2;
         plant.dataString = dt3.toLocaleDateString();
         plant.troca = "true";
         plant.trocaTexto = "Sim";
@@ -140,7 +141,7 @@ export class TrocaPlantaoPage {
           plantaoN.cargaHoraria = "12 Horas Noturna";
           plantaoN.novoEscalado = "";
           plantaoN.data = this.plantao.data;
-          
+
           let dtt = new Date(this.plantao.data);
           let dtt2 = dt.setHours(24);
           let dtt3 = new Date(dt2);
@@ -175,7 +176,7 @@ export class TrocaPlantaoPage {
             plantaoD.id = this.idref++;
             plantaoD.cargaHoraria = "12 Horas Noturna";
             plantaoD.novoEscalado = this.plantonistaN;
-            
+
             let dt = new Date(this.plantao.data);
             let dt2 = dt.setHours(24);
             let dt3 = new Date(dt2);
@@ -217,13 +218,13 @@ export class TrocaPlantaoPage {
 
           }
           else
-            if (this.plantao.cargaHoraria == '24 horas' && this.cargaHorariaN == '12 Horas Diurna' && this.trocadoV != "false") {
+            if (this.plantao.cargaHoraria == "24 horas" && this.cargaHorariaN == "12 Horas Diurna" && this.trocadoV != "false") {
 
               this.plantao.novoEscalado = this.plantonistaN;
 
               let tam = this.plantoes.length;
 
-              
+
               let dt = new Date(this.dttroca);
               let dt2 = dt.setHours(24);
               let dt3 = new Date(dt2);
@@ -234,17 +235,32 @@ export class TrocaPlantaoPage {
                   this.plantoes[i].novoEscalado = this.plantao.novoEscalado;
                   this.plantoes[i].troca = "true";
                   this.plantoes[i].trocaTexto = "Sim";
+                  this.plantoes[i].cargaHoraria = "12 Horas Diurna"
                   this.plantoes[i].trocado = "true"
                   this.plantoes[i].trocado = "Sim"
-                  this.plantoes[i].novaData = dt3.getMilliseconds()
+                  this.plantoes[i].novaData = dt2;
                   this.plantoes[i].novaDataString = dt3.toLocaleDateString();
+                  this.plantV1.escalado=this.plantoes[i].escalado;
+                  this.plantV1.data=this.plantoes[i].data;
+                  this.plantV1.dataString=this.plantoes[i].dataString;
+                  this.plantV1.id = this.idref++;
+                  this.plantV1.novoEscalado = "";
+                  this.plantV1.novaData = null;
+                  this.plantV1.troca = "false"
+                  this.plantV1.trocaTexto = "Não";
+                  this.plantV1.trocado = "false"
+                  this.plantV1.trocadoTexto = "Não"
+                  this.plantV1.cargaHoraria="12 Horas Noturna"
+                  this.plantoes.push(this.plantV1);
+                  this.localStorage.setId(this.idref);
+                  this.localStorage.setPlantoes(this.plantoes);
                   break;
                 }
               }
 
               let pl: PlantaoDTO = buildPlantao();
               pl.cargaHoraria = "12 Horas Noturna";
-              pl.data = dt3.getMilliseconds();
+              pl.data = dt2;
               pl.dataString = dt.toLocaleDateString();
               pl.troca = "true";
               pl.trocaTexto = "Sim";
@@ -274,17 +290,34 @@ export class TrocaPlantaoPage {
                     this.plantoes[i].troca = "true";
                     this.plantoes[i].trocaTexto = "Sim";
                     this.plantoes[i].trocado = "true"
+                    this.plantoes[i].cargaHoraria = "12 Horas Noturna"
                     this.plantoes[i].trocado = "Sim"
-                    this.plantoes[i].novaData = dt3.getMilliseconds()
+                    this.plantoes[i].novaData = dt2;
                     this.plantoes[i].novaDataString = dt3.toLocaleDateString();
+                    this.plantV1.escalado=this.plantoes[i].escalado;
+                  this.plantV1.data=this.plantoes[i].data;
+                  this.plantV1.dataString=this.plantoes[i].dataString;
+                  this.plantV1.id = this.idref++;
+                  this.plantV1.novoEscalado = "";
+                  this.plantV1.novaData = null;
+                  this.plantV1.troca = "false"
+                  this.plantV1.trocaTexto = "Não";
+                  this.plantV1.trocado = "false"
+                  this.plantV1.trocadoTexto = "Não"
+                  this.plantV1.cargaHoraria="12 Horas Diurna"
+                  this.plantoes.push(this.plantV1);
+                  this.localStorage.setId(this.idref);
+                  this.localStorage.setPlantoes(this.plantoes);
                     break;
                   }
                 }
 
+
+
                 let pl: PlantaoDTO = buildPlantao();
                 pl.cargaHoraria = "12 Horas Diurna";
-                pl.data = dt.getMilliseconds();
-                pl.dataString = dt.toLocaleDateString();
+                pl.data = dt2;
+                pl.dataString = dt3.toLocaleDateString();
                 pl.troca = "true";
                 pl.trocaTexto = "Sim";
                 pl.id = this.idref++;

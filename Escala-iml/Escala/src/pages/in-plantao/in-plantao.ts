@@ -2,7 +2,7 @@ import { Component, ElementRef } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { PlantaoDTO, buildPlantao } from '../../modelos/plantao';
 import { StorageProvider } from '../../providers/storage/storage';
-import { UsuarioDTO } from '../../modelos/usuario-dto';
+import { UsuarioDTO, buildUsuarioDTO } from '../../modelos/usuario-dto';
 
 /**
  * Generated class for the InPlantaoPage page.
@@ -29,6 +29,10 @@ troca:string='false';
 novoEscalado:string
 abreNovoEsc:number=0;
 abreNovaData:number=0;
+trocadoV:string
+cargaHorariaNV:string
+comQuem:string="";
+us=buildUsuarioDTO();
   constructor(public navCtrl: NavController,
      public navParams: NavParams,
      public localStorage:StorageProvider) {
@@ -38,8 +42,8 @@ abreNovaData:number=0;
    
     this.plantoes=this.localStorage.getPlantoes();
     this.id=this.localStorage.getId();
-    let us:UsuarioDTO=this.localStorage.getUsuario();
-    this.plantonista=us.apelido;
+    this.us=this.localStorage.getUsuario();
+    this.plantonista=this.us.apelido;
     
     console.log(this.plantoes)
   }
@@ -50,38 +54,30 @@ abreNovaData:number=0;
  
    let dat2=dat.setHours(24);
    let dat3= new Date(dat2);
-    
-  this.plantao.data=dat3.getMilliseconds();
-  
+    console.log(dat3)
+  this.plantao.data=dat2;
+ 
   this.plantao.dataString=dat3.toLocaleDateString();
-  this.plantao.escalado=this.plantonista;
-  this.plantao.troca=this.troca;
-  if(this.troca=='true' ){
-    this.plantao.trocaTexto="Sim"
-    this.plantao.novoEscalado=this.novoEscalado;
-  }
-  else{
-    this.plantao.trocaTexto="Não";
-    this.plantao.novoEscalado=""
-  }
+ this.plantao.escalado=this.us.apelido;
+ this.plantao.id=this.id++;
+ this.plantao.cargaHoraria=this.cargaHoraria;
+ this.plantao.troca=this.troca;
+ if(this.troca=="true"){
+  this.plantao.trocaTexto="Sim";
+ }
+ else{
+  this.plantao.trocaTexto="Não";
+ }
+ 
 
-  if(this.novoEscalado!=''){
-    this.plantao.novoEscalado=this.novoEscalado;
-  }
-  else{
-    this.plantao.novoEscalado=""
-  }
-  this.plantao.cargaHoraria=this.cargaHoraria;
-  this.plantao.id=this.id;
-  this.id=this.id+1;
-  this.localStorage.setId(this.id);
-  this.plantoes.push(this.plantao);
-  console.log(this.plantao);
-  this.plantao=buildPlantao()
-  this.localStorage.setPlantoes(this.plantoes)
-  this.navCtrl.setRoot(this.navCtrl.getActive().component);
-  
-  this.abreNovoEsc=0
+ this.plantao.comQuem=this.comQuem;
+
+
+ this.plantoes.push(this.plantao);
+ this.localStorage.setPlantoes(this.plantoes);
+ this.localStorage.setId(this.id);
+ this.navCtrl.setRoot(this.navCtrl.getActive().component);
+
     
   }
   abreNovoEscalado(){

@@ -80,7 +80,7 @@ export class ListaPlantaoPage {
             for (let x = ind; x >= 0; x--) {
             
               if (this.plantoes[x].data > this.plantoes[x + 1].data) {
-                console.log(this.plantoes[x].data + " " + this.plantoes[x + 1].data)
+               
                 plantaoM = this.plantoes[x]
                 this.plantoes[x] = this.plantoes[x + 1];
                 this.plantoes[x + 1] = plantaoM;

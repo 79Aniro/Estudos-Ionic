@@ -10,6 +10,7 @@ export interface PlantaoDTO{
     trocadoTexto:string;
     novoEscalado:string;
     novaData:number;
+    comQuem:string;
     novaDataString:string;
     cargaHoraria:string;
 }
@@ -27,6 +28,7 @@ export function buildPlantao(){
     trocadoTexto:null,
     novoEscalado:'',
     novaData:null,
+    comQuem:'',
     novaDataString:'',
     cargaHoraria:''
  }
