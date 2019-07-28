@@ -1,0 +1,46 @@
+<ion-header >
+  <link href='https://fonts.googleapis.com/css?family=Allan' rel='stylesheet'>
+  <ion-navbar color="custom">
+      <button ion-button menuToggle>
+          <ion-icon name="menu"> </ion-icon>
+      </button>
+      <ion-title>Dados Pessoais</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding class="back">
+
+  <ion-item class="back">
+    <p id="lab2" style="font-size: 20px; font-family: 'Allan'; "  *ngIf="nomeLogado!=''" >
+      {{nomeLogado}}
+    </p>
+  </ion-item>
+<br>
+  <ion-item class="back_list">
+    <ion-label id="lab" floating>Nome</ion-label>
+    <ion-input type="text" [(ngModel)]="nome" ></ion-input>
+  </ion-item>
+
+ 
+  <br>
+  <br>
+  <br>
+  <br>
+  
+  <ion-item class="back_list">
+    <button ion-button round block *ngIf="nomeLogado==''" (click)="gravar()" >Gravar</button>
+  </ion-item>
+  <br>
+  <br>
+  <ion-item class="back_list">
+    <button ion-button round block danger  style="background-color: red" (click)="apagar()" >Apagar Usuario </button>
+  </ion-item>
+
+  <br>
+  <br>
+  <ion-item class="back_list">
+    <button ion-button round block danger style="background-color: red" (click)="apagarPlantoes()" >Apagar Plantões </button>
+  </ion-item>
+
+</ion-content>

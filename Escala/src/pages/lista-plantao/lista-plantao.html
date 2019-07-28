@@ -1,0 +1,30 @@
+<ion-header >
+
+  <ion-navbar color="custom">
+      <button ion-button menuToggle>
+          <ion-icon name="menu"> </ion-icon>
+      </button>
+      <ion-title>Lista Plantão</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding class="back">
+  <ion-list>
+ 
+     
+      <ion-card *ngFor="let item of plantoes" (click)="detalhePlantao(item)" class="plantao">
+        <ion-card-header>
+         <p class="color_texto">Data: {{item.dataString}} </p>
+        </ion-card-header>
+        <ion-card-content>
+         <p class="color_texto">Escalado: {{item.escalado}}</p>
+         <p class="color_texto">Carga Horária: {{item.cargaHoraria}}</p>
+         <p class="color_texto">Observação: {{item.observacao}}</p>
+         
+        </ion-card-content>
+      </ion-card>
+      
+    
+  </ion-list>
+</ion-content>
