@@ -26,6 +26,11 @@ cargaHoraria:string;
 plantoes:PlantaoDTO[]=[]
 id:number;
 observacao:string;
+troca:string='';
+isEscalado:string='';
+novoEscalado:string='';
+velhoEscalado:string='';
+
 
 us=buildUsuarioDTO();
   constructor(public navCtrl: NavController,
@@ -56,6 +61,32 @@ us=buildUsuarioDTO();
  
  this.plantao.cargaHoraria=this.cargaHoraria;
  this.plantao.observacao=this.observacao;
+
+ if(this.troca=='sim'){
+  this.plantao.troca=this.troca;
+
+  if(this.isEscalado=='sim'){
+    this.plantao.isEscalado='sim';
+    this.plantonista=this.us.nome
+    this.plantao.novoEscalado=this.novoEscalado;
+    this.plantao.vouFazerOutro='';
+    this.plantao.outroFazParaMim='sim';
+  }
+  else{
+    this.plantao.escalado=this.velhoEscalado;
+    this.plantao.velhoEscalado=this.velhoEscalado;
+    this.plantao.novoEscalado='Você';
+    this.plantao.isEscalado='não';
+    this.plantao.vouFazerOutro='sim';
+    this.plantao.outroFazParaMim='';
+  }
+ }
+ 
+
+ 
+ 
+
+ 
 
 this.plantao.id=this.id++;
 

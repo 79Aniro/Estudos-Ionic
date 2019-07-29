@@ -17,7 +17,7 @@
    <br>
   
     <ion-item class="back_list">
-      <ion-label id="lab" floating >Data</ion-label>
+      <ion-label id="lab" floating >Calendário:click duas vezes </ion-label>
       <ion-input type="date" [(ngModel)]="dt"  id="dataPlantao" ></ion-input>
     </ion-item>
 
@@ -32,7 +32,35 @@
       </ion-select>
     </ion-item>
 
+    <ion-item class="back_list">
+        <ion-label id="lab" floating>Troca?</ion-label>
+        <ion-select [(ngModel)]="troca"  >
+          <ion-option value="sim">Sim</ion-option>
+          <ion-option value="não">Não</ion-option>        
+          
+        </ion-select>
+      </ion-item>
+
+      <ion-item class="back_list" *ngIf="troca=='sim'" >
+          <ion-label id="lab" floating>Você é o escalado?</ion-label>
+          <ion-select [(ngModel)]="isEscalado"  >
+            <ion-option value="sim">Sim</ion-option>
+            <ion-option value="não">Não</ion-option>        
+            
+          </ion-select>
+        </ion-item>
+
   <br>
+
+  <ion-item class="back_list" *ngIf="isEscalado=='sim'"  >   
+      <ion-label id="lab" floating>Quem fará para Você?</ion-label>
+    <ion-input type="text" [(ngModel)]="novoEscalado"   ></ion-input>
+  </ion-item>
+
+  <ion-item class="back_list" *ngIf="isEscalado=='não'"  >   
+      <ion-label id="lab" floating>Você fará para quem?</ion-label>
+    <ion-input type="text" [(ngModel)]="velhoEscalado"   ></ion-input>
+  </ion-item>
 
     <ion-item class="back_list" >   
         <ion-label id="lab" floating>Observação</ion-label>

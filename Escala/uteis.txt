@@ -1,0 +1,46 @@
+Comandos para assinar apk android
+
+
+1° ionic cordova build android --release --prod
+
+2° Procurar pasta onde foi gerado apk
+
+3°Gerar chave de assinaturado app (keytool -genkey -v -keystore app-escala-key -keyalg RSA -keysize 2048 -validity 1000000 -alias app-escala-iml)
+
+4º Informar chave de armazenamento (app-escala-3265)
+
+5º Assinar apk (jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore app-ionic-key app-release-unsigned.apk app-escala-iml)
+
+6º Executar o zipaligh para otimizar o arquivo:
+  zipalign -v 4 app-release-unsigned.apk Escala.apk
+
+
+
+
+
+Perguntas para assinatura
+
+
+Qual seu nome e sobrenome?
+Resposta: Daniel Gil Monteiro de Faria
+
+
+Qual o nome de sua unidade organizacional?
+Resposta: E-condutor
+
+
+Qual o nome da Empresa?
+Resposta: Anova Sistemas
+
+
+Qual o nome da sua localidade ou cidade?
+Resposta:São José dos Campos
+
+
+Qual o nome do seu estado ou municipio?
+Resposta: São Paulo
+
+
+Quais sao as duas letras do codigo do pais desta unidade?
+
+resposta: SP

@@ -48,7 +48,7 @@ export class ListaPlantaoPage {
         {
           text: 'Sim',
           handler: data => {
-            console.log(plantao)
+        
             let pl:PlantaoDTO[]=[];
             for(let item of this.plantoes){
               if(item.id!=plantao.id){
@@ -56,7 +56,7 @@ export class ListaPlantaoPage {
 
               }
             }
-            console.log(pl);
+          
             this.plantoes=[];
             this.plantoes=pl;
             this.localStorage.setPlantoes(this.plantoes);
@@ -78,10 +78,10 @@ export class ListaPlantaoPage {
       for (let i = 0; i < tam; i++) {
         let d1 = this.plantoes[i].data;
         let d2 = this.plantoes[i + 1].data;
-        console.log(d1 + " " + d2)
+        
 
         if (d1 > d2) {
-          console.log(d1 + " " + d2)
+          
           plantaoM = this.plantoes[i]
           this.plantoes[i] = this.plantoes[i + 1];
           this.plantoes[i + 1] = plantaoM;

@@ -6,6 +6,13 @@ export interface PlantaoDTO {
     observacao: string;
     cargaHoraria: string;
     escalado:string;
+    troca:string;
+    isEscalado:string;
+    novoEscalado:string;
+    velhoEscalado:string;
+    vouFazerOutro:string;
+    outroFazParaMim:string;
+    
 }
 
 export function buildPlantao() {
@@ -16,7 +23,13 @@ export function buildPlantao() {
         dataString: '',
         observacao: '',
         cargaHoraria: '',
-        escalado:''
+        escalado:'',
+        troca:'',
+        isEscalado:'',
+        novoEscalado:'',
+        velhoEscalado:'',
+        vouFazerOutro:'',
+        outroFazParaMim:''
     }
     return plantao;
 
