@@ -1,0 +1,78 @@
+
+<ion-header >
+
+  <ion-navbar color="custom">
+      <button ion-button menuToggle>
+          <ion-icon name="menu"> </ion-icon>
+      </button>
+      <ion-title>Inserir Plantao</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding class="back">
+
+  <ion-list class="back_list">
+
+   <br>
+  
+    <ion-item class="back_list">
+      <ion-label id="lab" floating >Calendário:click duas vezes </ion-label>
+      <ion-input type="date" [(ngModel)]="dt"  id="dataPlantao" ></ion-input>
+    </ion-item>
+
+  
+    <ion-item class="back_list">
+      <ion-label id="lab" floating>Carga Horaria</ion-label>
+      <ion-select [(ngModel)]="cargaHoraria"  >
+        <ion-option value="24 horas">24 horas</ion-option>
+        <ion-option value="12 Horas Diurna">12 Horas Diurna</ion-option>
+        <ion-option value="12 Horas Noturna">12 Horas Noturna</ion-option>
+        
+      </ion-select>
+    </ion-item>
+
+    <ion-item class="back_list">
+        <ion-label id="lab" floating>Troca?</ion-label>
+        <ion-select [(ngModel)]="troca"  >
+          <ion-option value="sim">Sim</ion-option>
+          <ion-option value="não">Não</ion-option>        
+          
+        </ion-select>
+      </ion-item>
+
+      <ion-item class="back_list" *ngIf="troca=='sim'" >
+          <ion-label id="lab" floating>Você é o escalado?</ion-label>
+          <ion-select [(ngModel)]="isEscalado"  >
+            <ion-option value="sim">Sim</ion-option>
+            <ion-option value="não">Não</ion-option>        
+            
+          </ion-select>
+        </ion-item>
+
+  <br>
+
+  <ion-item class="back_list" *ngIf="isEscalado=='sim'"  >   
+      <ion-label id="lab" floating>Quem fará para Você?</ion-label>
+    <ion-input type="text" [(ngModel)]="novoEscalado"   ></ion-input>
+  </ion-item>
+
+  <ion-item class="back_list" *ngIf="isEscalado=='não'"  >   
+      <ion-label id="lab" floating>Você fará para quem?</ion-label>
+    <ion-input type="text" [(ngModel)]="velhoEscalado"   ></ion-input>
+  </ion-item>
+
+    <ion-item class="back_list" >   
+        <ion-label id="lab" floating>Observação</ion-label>
+      <ion-input type="text" [(ngModel)]="observacao"   ></ion-input>
+    </ion-item>
+
+   
+<br>
+<br>
+    <ion-item class="back_list">
+      <button id="but" ion-button round block (click)="gravar()"  >Gravar</button>
+    </ion-item>
+  
+  </ion-list>
+</ion-content>

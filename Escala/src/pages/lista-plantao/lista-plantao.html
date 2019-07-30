@@ -1,0 +1,38 @@
+<ion-header >
+
+  <ion-navbar color="custom">
+      <button ion-button menuToggle>
+          <ion-icon name="menu"> </ion-icon>
+      </button>
+      <ion-title>Lista Plantão</ion-title>
+  </ion-navbar>
+  <div class="divConfig">
+      <ion-icon name="information-circle" class="config_icon_1">Meu plantão</ion-icon>
+      <ion-icon name="information-circle" class="config_icon_2">Pagando plantão</ion-icon>
+      <ion-icon name="information-circle" class="config_icon_3">Plantão pago</ion-icon>
+  </div>
+ 
+</ion-header>
+
+<ion-content padding class="back">
+  <ion-list>
+ 
+     
+      <ion-card *ngFor="let item of plantoes" (click)="detalhePlantao(item)" [ngClass]="item.outroFazParaMim==='sim' ? 'outroFazParaMim':item.vouFazerOutro==='sim'? 'vouFazerOutro':'plantao' " >
+        <ion-card-header>
+         <p class="color_texto">Data: {{item.dataString}} </p>
+        </ion-card-header>
+        <ion-card-content class="color_texto">
+         <p class="color_texto">Escalado: {{item.escalado}}</p>
+         <p class="color_texto">Carga Horária: {{item.cargaHoraria}}</p>
+         <p class="color_texto" *ngIf="item.troca==='sim'" >Troca: Sim</p>
+         <p class="color_texto" *ngIf="item.novoEscalado!='' "  >{{item.novoEscalado}} irá fazer o plantão</p>
+         <p class="color_texto">Observação: {{item.observacao}}</p>
+         
+         
+        </ion-card-content>
+      </ion-card>
+      
+    
+  </ion-list>
+</ion-content>
