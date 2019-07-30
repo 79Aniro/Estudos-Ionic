@@ -4,5 +4,6 @@
     "cordova": {}
   },
   "type": "ionic-angular",
-  "pro_id": "appCompra.aniro.com"
+  "pro_id": "appCompra.aniro.com",
+  "id": "appCompra.aniro.com"
 }
