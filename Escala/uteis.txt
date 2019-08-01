@@ -9,7 +9,7 @@ Comandos para assinar apk android
 
 4º Informar chave de armazenamento (app-escala-3265)
 
-5º Assinar apk (jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore app-ionic-key app-release-unsigned.apk app-escala-iml)
+5º Assinar apk (jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore app-escala-key app-release-unsigned.apk app-escala-iml)
 
 6º Executar o zipaligh para otimizar o arquivo:
   zipalign -v 4 app-release-unsigned.apk Escala.apk
@@ -22,15 +22,15 @@ Perguntas para assinatura
 
 
 Qual seu nome e sobrenome?
-Resposta: Daniel Gil Monteiro de Faria
+Resposta: Aniro Montenegro
 
 
 Qual o nome de sua unidade organizacional?
-Resposta: E-condutor
+Resposta: Montenegro Sistemas
 
 
 Qual o nome da Empresa?
-Resposta: Anova Sistemas
+Resposta: Montenegro Sistemas
 
 
 Qual o nome da sua localidade ou cidade?
