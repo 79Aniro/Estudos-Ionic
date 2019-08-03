@@ -1,22 +1,58 @@
-import { Component } from '@angular/core';
-import { Platform } from 'ionic-angular';
+import { Component, ViewChild } from '@angular/core';
+import { Platform, Nav } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
-import { HomePage } from '../pages/home/home';
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage:any = HomePage;
 
-  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
-    platform.ready().then(() => {
+  @ViewChild(Nav) nav: Nav;
+
+
+  rootPage: string ;
+
+  pages: Array<{title: string, component: string}>;
+
+  constructor(public platform: Platform,public statusBar: StatusBar, public splashScreen: SplashScreen) {
+
+
+this.inicializarApp();
+
+
+
+this.pages = [
+  { title: 'Home', component: 'HomePage' },        
+  { title: 'Servicos', component: 'ServicosViaturaPage' },
+  { title: 'Editar', component: 'EditaViaturaPage'},
+  { title: 'Inserir VTR', component: 'InsereViaturaPage'},
+ 
+  
+
+ 
+];
+
+
+
+  }
+
+openPage(page : {title:string, component:string}) {
+
+    this.nav.setRoot(page.component);
+  }
+
+
+  inicializarApp(){
+    this.platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
-      statusBar.styleDefault();
-      splashScreen.hide();
+      this.statusBar.styleBlackTranslucent();
+      this.splashScreen.hide();
     });
+    this.rootPage='HomePage';
   }
+
+  
 }
 
