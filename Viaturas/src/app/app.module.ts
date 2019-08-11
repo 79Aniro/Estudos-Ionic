@@ -7,10 +7,15 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { MyApp } from './app.component';
 
 import { StorageServiceProvider } from '../providers/storage-service/storage-service';
+import { UteisProvider } from '../providers/uteis/uteis';
+import { ActionSheetController } from 'ionic-angular';
+
 
 @NgModule({
   declarations: [
     MyApp,
+   
+   
     
   ],
   imports: [
@@ -20,6 +25,9 @@ import { StorageServiceProvider } from '../providers/storage-service/storage-ser
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
+    
+    
+    
    
   ],
   providers: [
@@ -27,7 +35,9 @@ import { StorageServiceProvider } from '../providers/storage-service/storage-ser
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     StorageServiceProvider,
-    StorageServiceProvider
+    UteisProvider,
+    ActionSheetController
+   
   ]
 })
 export class AppModule {}

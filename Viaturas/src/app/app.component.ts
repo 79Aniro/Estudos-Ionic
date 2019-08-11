@@ -3,8 +3,10 @@ import { Platform, Nav } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
+
 @Component({
-  templateUrl: 'app.html'
+  templateUrl: 'app.html',
+  selector: 'page-app',
 })
 export class MyApp {
 
@@ -25,7 +27,6 @@ this.inicializarApp();
 this.pages = [
   { title: 'Home', component: 'HomePage' },        
   { title: 'Servicos', component: 'ServicosViaturaPage' },
-  { title: 'Editar', component: 'EditaViaturaPage'},
   { title: 'Inserir VTR', component: 'InsereViaturaPage'},
  
   

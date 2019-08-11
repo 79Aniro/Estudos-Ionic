@@ -1,16 +1,33 @@
-// http://ionicframework.com/docs/theming/
+
+page-app {
+.config_header{
+    background-color: black;
+    color: white;
 
 
-// App Global Sass
-// --------------------------------------------------
-// Put style rules here that you want to apply globally. These
-// styles are for the entire app and not just one component.
-// Additionally, this file can be also used as an entry point
-// to import other Sass files to be included in the output CSS.
-//
-// Shared Sass variables, which can be used to adjust Ionic's
-// default Sass variables, belong in "theme/variables.scss".
-//
-// To declare rules for a specific mode, create a child rule
-// for the .md, .ios, or .wp mode classes. The mode class is
-// automatically applied to the <body> element in the app.
+    .myPage {
+        .myActionSheetBtnStyle {
+            color: red;
+        }
+    }
+}
+
+
+}
+.action-sheet-md .action-sheet-button {
+    text-align: left;
+    text-align: start;
+    position: relative;
+    overflow: hidden;
+    min-height: 4.8rem;
+    font-size: 1.8rem;
+    color: rgb(255, 255, 255);
+   
+    padding: 0 16px;
+    background-color: red;
+  
+}
+
+.action-sheet-md .action-sheet-group {
+    background-color: red;
+}

@@ -1,6 +1,6 @@
 <ion-header>
 
-  <ion-navbar>
+  <ion-navbar color="custom">
       <button ion-button menuToggle>
           <ion-icon name="menu"> </ion-icon>
       </button>
@@ -39,26 +39,26 @@
 
                 <ion-item>
                     <ion-label floating>Ano Fabricacao</ion-label>
-                    <ion-input formControlName="anoFabricacao" type="date"></ion-input>
+                    <ion-input formControlName="anoFabricacao" type="number"></ion-input>
                   </ion-item>
-                  <ion-item>
+                  <ion-item  >
                       <ion-label floating>Ultima Revisao</ion-label>
-                      <ion-input formControlName="ultimaRevisao" type="date"></ion-input>
+                      <ion-input  formControlName="ultimaRevisao" type="date" (ionChange)="calcularProximaRevisao()" ></ion-input>
                     </ion-item>
 
                     <ion-item>
                         <ion-label floating>Ultima Revisao Km</ion-label>
-                        <ion-input formControlName="ultimaRevisaoKm" type="number"></ion-input>
+                        <ion-input formControlName="ultimaRevisaoKm" type="number" [(ngModel)]="ultimaRevisaoKmV"  (change)="calcularProximaRevisaoKM($event)" ></ion-input>
                       </ion-item>
 
                       <ion-item>
                           <ion-label floating>Proxima Revisao Km</ion-label>
-                          <ion-input formControlName="proximaRevisaoKm" type="number"></ion-input>
+                          <ion-input formControlName="proximaRevisaoKm" type="number"    ></ion-input>
                         </ion-item>
 
                         <ion-item>
                             <ion-label floating>Proxima Revisao Date</ion-label>
-                            <ion-input formControlName="proximaRevisao" type="date"></ion-input>
+                            <ion-input  formControlName="proximaRevisao" type="date" [(ngModel)]="dataV" ></ion-input>
                           </ion-item>
 
                           <ion-item>

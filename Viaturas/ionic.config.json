@@ -1,5 +1,7 @@
 {
   "name": "Viaturas",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "ionic-angular"
 }

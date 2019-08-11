@@ -1,12 +1,11 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage,ModalController, NavController, NavParams } from 'ionic-angular';
+import { StorageServiceProvider } from '../../providers/storage-service/storage-service';
+import { ViaturaDTO } from '../../modelos/viatura';
+import { ActionSheetController } from 'ionic-angular';
 
-/**
- * Generated class for the ServicosViaturaPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+
+
 
 @IonicPage()
 @Component({
@@ -15,11 +14,59 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class ServicosViaturaPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  viaturas:ViaturaDTO[]=[];
+  constructor(public navCtrl: NavController,
+     public navParams: NavParams,
+     public localStorege:StorageServiceProvider,
+     public actionSheetCtrl: ActionSheetController,
+     public modalCtrl: ModalController) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad ServicosViaturaPage');
+    this.viaturas=this.localStorege.getViaturarAll();
+    console.log(this.viaturas);
+  
   }
 
+
+  itemSelected(item:ViaturaDTO){
+
+    
+    this.presentActionSheet(item);
+
+  }
+
+  presentActionSheet(item:ViaturaDTO) {
+    const actionSheet = this.actionSheetCtrl.create({
+      title: "",
+      cssClass: 'myPage',
+      
+      buttons: [
+        {
+          text: 'Revisão',
+          cssClass: 'myActionSheetBtnStyle',
+          
+          handler: () => {
+          
+            this.navCtrl.push('RevisaoPage',{item:item})
+          }
+        },
+        
+        {
+          text: 'Pneus',
+          handler: () => {
+            console.log('Archive clicked');
+          }
+        },{
+          text: 'Cancelar',
+          role: 'cancel',
+          
+          handler: () => {
+            console.log('Cancel clicked');
+          }
+        }
+      ]
+    });
+    actionSheet.present();
+  }
 }
