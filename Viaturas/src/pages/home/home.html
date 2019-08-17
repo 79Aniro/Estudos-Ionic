@@ -1,0 +1,35 @@
+<ion-header>
+
+  <ion-navbar color="custom">
+      <button ion-button menuToggle>
+          <ion-icon name="menu"> </ion-icon>
+      </button>
+    <ion-title>Viaturas</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding class="config_back">
+  
+  <ion-grid>
+    <ion-row>
+      <ion-col col-1>
+
+      </ion-col>
+      <ion-col col-10>
+        <img src="assets/imgs/logo.jpg" class="config_img">
+        </ion-col>
+        <ion-col col-1>
+        
+          </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <div>
+    <br>
+      <button ion-button block outline color="danger" round (click)="inserirVTR()" class="config_botao" >Inserir VTR</button>
+<br>
+      <button ion-button block outline color="danger" round (click)="listarVTR()" class="config_botao" >Listar VTR</button>
+  </div>
+
+</ion-content>

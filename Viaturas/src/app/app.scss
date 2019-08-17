@@ -1,0 +1,33 @@
+
+page-app {
+.config_header{
+    background-color: black;
+    color: white;
+
+
+    .myPage {
+        .myActionSheetBtnStyle {
+            color: red;
+        }
+    }
+}
+
+
+}
+.action-sheet-md .action-sheet-button {
+    text-align: left;
+    text-align: start;
+    position: relative;
+    overflow: hidden;
+    min-height: 4.8rem;
+    font-size: 1.8rem;
+    color: rgb(255, 255, 255);
+   
+    padding: 0 16px;
+    background-color: red;
+  
+}
+
+.action-sheet-md .action-sheet-group {
+    background-color: red;
+}

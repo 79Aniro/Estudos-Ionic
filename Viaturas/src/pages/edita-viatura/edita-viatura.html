@@ -1,0 +1,33 @@
+<!--
+  Generated template for the EditaViaturaPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title>Editar </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-item  >
+        <ion-label floating>Ultima Revisao</ion-label>
+        <ion-input  formControlName="ultimaRevisao" type="date" (ionChange)="calcularProximaRevisao()" ></ion-input>
+      </ion-item>
+
+      <ion-item>
+          <ion-label floating>Ultima Revisao Km</ion-label>
+          <ion-input formControlName="ultimaRevisaoKm" type="number"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label floating>Proxima Revisao Km</ion-label>
+            <ion-input formControlName="proximaRevisaoKm" type="number"  ></ion-input>
+          </ion-item>
+
+          <ion-item>
+              <ion-label floating>Proxima Revisao Date</ion-label>
+              <ion-input  formControlName="proximaRevisao" type="date" value="{{dataV}}" ></ion-input>
+            </ion-item>
+</ion-content>
