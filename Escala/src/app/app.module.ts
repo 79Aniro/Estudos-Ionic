@@ -7,7 +7,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { MyApp } from './app.component';
 import { MenuPage } from '../pages/menu/menu';
 import { StorageProvider } from '../providers/storage/storage';
-
+import { FullCalendarModule } from '@fullcalendar/angular';
 
 @NgModule({
   declarations: [
@@ -16,7 +16,8 @@ import { StorageProvider } from '../providers/storage/storage';
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    FullCalendarModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [

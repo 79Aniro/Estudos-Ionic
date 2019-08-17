@@ -7,13 +7,14 @@ import { StorageProvider } from '../providers/storage/storage';
 import { UsuarioDTO, buildUsuarioDTO } from '../modelos/usuario-dto';
 import { STORAGE_KEYS } from '../config/storage_keys.config';
 
+import dayGridPlugin from '@fullcalendar/daygrid';
 
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
-
+  calendarPlugins = [dayGridPlugin]; 
   rootPage: string ;
   pages: Array<{title: string, component: string}>;
 

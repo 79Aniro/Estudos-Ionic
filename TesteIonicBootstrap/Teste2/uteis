@@ -1,5 +1,0 @@
-npm i bootstrap
-
-npm i animate.css
-
-no arquivo app.css colocar= @import 'node_modules/bootstrap/scss/bootstrap.scss';

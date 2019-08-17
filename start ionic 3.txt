@@ -1,3 +1,7 @@
 ionic start Ionic3Project blank --type=ionic-angular
 
 ionic start Viaturas blank --type=ionic-angular
+
+ionic start TesteCalendarios blank --type=ionic-angular
+
+ionic start AgendaPastoral blank --type=ionic-angular
