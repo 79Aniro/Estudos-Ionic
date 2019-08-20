@@ -5,6 +5,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
+import { DatePicker } from '@ionic-native/date-picker';
 
 import { StorageServiceProvider } from '../providers/storage-service/storage-service';
 import { UteisProvider } from '../providers/uteis/uteis';
@@ -36,7 +37,8 @@ import { ActionSheetController } from 'ionic-angular';
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     StorageServiceProvider,
     UteisProvider,
-    ActionSheetController
+    ActionSheetController,
+    DatePicker
    
   ]
 })

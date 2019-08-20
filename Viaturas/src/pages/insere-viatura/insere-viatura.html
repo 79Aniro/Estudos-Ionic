@@ -11,7 +11,7 @@
 
 <ion-content padding>
 
-  <form [formGroup]="formGroup" (ngSubmit)= "insereOco(); $event.preventDefault()">
+  
 
      
 
@@ -20,60 +20,62 @@
       
         <ion-item>
             <ion-label floating>Placa</ion-label>
-            <ion-input formControlName="placa" type="text"></ion-input>
+            <ion-input [(ngModel)]="placa" type="text"></ion-input>
           </ion-item>
 
           <ion-item>
               <ion-label floating>Patrimonio</ion-label>
-              <ion-input formControlName="patrimonio" type="text"></ion-input>
+              <ion-input [(ngModel)]="patrimonio" type="text"></ion-input>
             </ion-item>
             <ion-item>
                 <ion-label floating>Kilometragem</ion-label>
-                <ion-input formControlName="kilometragem" type="number"></ion-input>
+                <ion-input [(ngModel)]="kilometragem" type="number"></ion-input>
               </ion-item>
 
               <ion-item>
                   <ion-label floating>Modelo</ion-label>
-                  <ion-input formControlName="modelo" type="text"></ion-input>
+                  <ion-input [(ngModel)]="modelo" type="text"></ion-input>
                 </ion-item>
 
                 <ion-item>
                     <ion-label floating>Ano Fabricacao</ion-label>
-                    <ion-input formControlName="anoFabricacao" type="number"></ion-input>
+                    <ion-input [(ngModel)]="anoFabricacao" type="number"></ion-input>
                   </ion-item>
-                  <ion-item  >
-                      <ion-label floating>Ultima Revisao</ion-label>
-                      <ion-input  formControlName="ultimaRevisao" type="date" (ionChange)="calcularProximaRevisao()" ></ion-input>
-                    </ion-item>
+                  
+                  <ion-item (click) ="ultimaRevisaoF()">
+                    <ion-label floating>Ultima Revisao Data</ion-label>
+                    <ion-input [(ngModel)]="ultimaRevisaoTexto" type="text" disabled>{{ultimaRevisaoTexto}}</ion-input>
+                  </ion-item>
+                
 
                     <ion-item>
                         <ion-label floating>Ultima Revisao Km</ion-label>
-                        <ion-input formControlName="ultimaRevisaoKm" type="number" [(ngModel)]="ultimaRevisaoKmV"  (change)="calcularProximaRevisaoKM($event)" ></ion-input>
+                        <ion-input [(ngModel)]="ultimaRevisaoKm" type="number" [(ngModel)]="ultimaRevisaoKmV"  (ionChange)="calcularProximaRevisaoKM()" ></ion-input>
                       </ion-item>
 
                       <ion-item>
                           <ion-label floating>Proxima Revisao Km</ion-label>
-                          <ion-input formControlName="proximaRevisaoKm" type="number"    ></ion-input>
+                          <ion-input [(ngModel)]="proximaRevisaoKm" type="number"    ></ion-input>
                         </ion-item>
 
-                        <ion-item>
-                            <ion-label floating>Proxima Revisao Date</ion-label>
-                            <ion-input  formControlName="proximaRevisao" type="date" [(ngModel)]="dataV" ></ion-input>
+                        <ion-item (click) ="proximaRevisaoF()">
+                            <ion-label floating>Proxima Revisao Data</ion-label>
+                            <ion-input  [(ngModel)]="proximaRevisaoTexto" type="text" disabled >{{proximaRevisaoTexto}}</ion-input>
                           </ion-item>
 
-                          <ion-item>
-                              <ion-label floating>Ultima Troca Pneus</ion-label>
-                              <ion-input formControlName="ultimaTrocaPneus" type="date"></ion-input>
+                          <ion-item (click) ='ultimaTrocaPneusF()'>
+                              <ion-label floating>Ultima Troca Pneus Data</ion-label>
+                              <ion-input [(ngModel)]="ultimaTrocaPneus" type="text" disabled>{{ultimaTrocaPneusTexto}}</ion-input>
                             </ion-item>
 
-                            <ion-item>
-                                <ion-label floating>Proxima Troca Pneus</ion-label>
-                                <ion-input formControlName="proximaTrocaPneus" type="date"></ion-input>
+                            <ion-item (click)="proximaTrocaPneusF()">
+                                <ion-label floating>Proxima Troca Pneus Data</ion-label>
+                                <ion-input [(ngModel)]="proximaTrocaPneus" type="text" disabled>{{proximaTrocaPneusTexto}}</ion-input>
                               </ion-item>
 
                               <ion-item>
                                   <ion-label floating>Observação</ion-label>
-                                  <ion-input formControlName="observacao" type="text"></ion-input>
+                                  <ion-input [(ngModel)]="observacao" type="text"></ion-input>
                                 </ion-item>
 
 
@@ -87,11 +89,11 @@
    
  
 
-      <button type="submit" [disabled]="formGroup.invalid" ion-button full>Gravar</button>
+      <button type="submit" (click)='insereOco()' ion-button full>Gravar</button>
 
 
 
 
-    </form>
+    
 
 </ion-content>
