@@ -4,12 +4,7 @@ import { PlantaoDTO, buildPlantao } from '../../modelos/plantao';
 import { StorageProvider } from '../../providers/storage/storage';
 import { UsuarioDTO, buildUsuarioDTO } from '../../modelos/usuario-dto';
 
-/**
- * Generated class for the InPlantaoPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+
 
 @IonicPage()
 @Component({

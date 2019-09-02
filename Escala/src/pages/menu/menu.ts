@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, Platform } from 'ionic-angular';
 import { PlantaoDTO } from '../../modelos/plantao';
 import { StorageProvider } from '../../providers/storage/storage';
+import { LocalNotifications } from '@ionic-native/local-notifications';
 
 
 
@@ -16,10 +17,15 @@ export class MenuPage {
   id:number;
   constructor(public navCtrl: NavController,
      public navParams: NavParams,
-     public localStorage:StorageProvider) {
+     public localStorage:StorageProvider,
+     public localNotifications: LocalNotifications,
+     public platform: Platform) {
+
+      
   }
 
   ionViewDidLoad() {
+   
     this.plantoes=this.localStorage.getPlantoes();
     if(this.plantoes.length==0){
      
@@ -31,6 +37,7 @@ export class MenuPage {
    let i= this.localStorage.getId();
     
     this.localStorage.setId(i+1);
+    this.chamaNota();
     
   }
 
@@ -46,5 +53,22 @@ export class MenuPage {
   listaPlantoes(){
     this.navCtrl.push('ListaPlantaoPage');
   }
+
+  chamaNota()
+{
+
+  let plantao:PlantaoDTO= this.plantoes[0];
+  let texto= "Seu proximo plantão será dia "+plantao.dataString;
+  this.platform.ready().then(() => {
+    this.localNotifications.schedule({
+      title:'Próximo Plantão',
+      text: texto,
+      trigger: {at: new Date(new Date().getTime() + 1000)},
+      led: 'FF0000',
+      sound: null,
+     
+   });
+  });
+}  
 
 }

@@ -4,10 +4,11 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 
+import { LocalNotifications } from '@ionic-native/local-notifications';
 import { MyApp } from './app.component';
-import { MenuPage } from '../pages/menu/menu';
+
 import { StorageProvider } from '../providers/storage/storage';
-import { FullCalendarModule } from '@fullcalendar/angular';
+
 
 @NgModule({
   declarations: [
@@ -17,7 +18,7 @@ import { FullCalendarModule } from '@fullcalendar/angular';
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
-    FullCalendarModule
+ 
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -29,6 +30,7 @@ import { FullCalendarModule } from '@fullcalendar/angular';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     StorageProvider,
+    LocalNotifications
     
   ]
 })
