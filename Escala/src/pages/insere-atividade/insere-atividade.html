@@ -1,0 +1,45 @@
+<ion-header >
+
+  <ion-navbar color="custom">
+      <button ion-button menuToggle>
+          <ion-icon name="menu"> </ion-icon>
+      </button>
+      <ion-title>Inserir Atividade</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding class="back">
+
+  <ion-list class="back_list">
+
+   <br>
+  
+    <ion-item class="back_list">
+      <ion-label id="lab" floating >Calendário:click duas vezes </ion-label>
+      <ion-input type="date" [(ngModel)]="dt"  id="dataPlantao" ></ion-input>
+    </ion-item>
+
+    <ion-item class="back_list">
+      <ion-label id="lab" floating >Horário:click duas vezes </ion-label>
+      <ion-input type="time" [(ngModel)]="hr"  id="horaPlantao" ></ion-input>
+    </ion-item>
+
+  
+    
+
+    
+    <ion-item class="back_list" >   
+        <ion-label id="lab" floating>Descrição</ion-label>
+      <ion-input type="text" [(ngModel)]="observacao"   ></ion-input>
+    </ion-item>
+
+   
+<br>
+<br>
+    <ion-item class="back_list">
+      <button id="but" ion-button round block (click)="gravar()"  >Gravar</button>
+    </ion-item>
+  
+  </ion-list>
+</ion-content>

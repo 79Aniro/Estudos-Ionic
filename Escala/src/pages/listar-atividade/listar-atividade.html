@@ -1,0 +1,31 @@
+<ion-header >
+
+  <ion-navbar color="custom">
+      <button ion-button menuToggle>
+          <ion-icon name="menu"> </ion-icon>
+      </button>
+      <ion-title>Lista Atividades</ion-title>
+  </ion-navbar>
+
+ 
+</ion-header>
+
+<ion-content  class="back">
+  <ion-list>
+ 
+     
+      <ion-card *ngFor="let item of lista" class="plantao" (click)="apagarAtividade(item)"  >
+        <ion-card-header>
+         <p class="color_texto">Data: {{item.dataString}} </p>
+        </ion-card-header>
+        <ion-card-content class="color_texto">         
+         <p class="color_texto">Horário: {{item.horaString}}</p>        
+         <p class="color_texto">Observação: {{item.observacao}}</p>
+         
+         
+        </ion-card-content>
+      </ion-card>
+      
+    
+  </ion-list>
+</ion-content>

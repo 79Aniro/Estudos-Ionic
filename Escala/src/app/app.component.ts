@@ -37,6 +37,8 @@ export class MyApp {
       { title: 'Insere Plantao', component: 'InPlantaoPage' },
       { title: 'Lista de Plantões', component: 'ListaPlantaoPage' },
       { title: 'Dados Pessoais', component: 'DadosPessoaisPage' },
+      { title: 'Inserir Atividade', component: 'InsereAtividadePage' },
+      { title: 'Listar Atividades', component: 'ListarAtividadePage' },
 
     
    

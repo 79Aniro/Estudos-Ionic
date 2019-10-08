@@ -4,6 +4,8 @@ import { PlantaoDTO } from '../../modelos/plantao';
 import { STORAGE_KEYS } from '../../config/storage_keys.config';
 import { ReferenciaIdDTO, buildReferenciaIdDTO } from '../../modelos/referecia_id';
 import { UsuarioDTO } from '../../modelos/usuario-dto';
+import { AtividadeDTO, buildAtividadeDTO } from '../../modelos/atividade';
+import { buildidAtividadeDTO } from '../../modelos/id_atividade';
 
 
 @Injectable()
@@ -32,6 +34,19 @@ export class StorageProvider {
   
  }
 
+ setIdAtividade(num:number){
+  
+  let obj2=buildidAtividadeDTO();
+  
+
+   obj2.numero=num;
+   localStorage.setItem(STORAGE_KEYS.idAtividade, JSON.stringify(obj2));
+ 
+ 
+}
+
+
+
  setusuario(usuario:UsuarioDTO){
 
    localStorage.setItem(STORAGE_KEYS.usuario,JSON.stringify(usuario));
@@ -52,6 +67,15 @@ export class StorageProvider {
    let idv=JSON.parse(id)
    return Number.parseInt(idv.numero);
  }
+
+
+ getIdAtividade(){
+  let id= localStorage.getItem(STORAGE_KEYS.idAtividade);
+  let idv=JSON.parse(id)
+  return Number.parseInt(idv.numero);
+}
+
+
  getPlantoes(){
    let obj2:PlantaoDTO[]=[];
   let obj = localStorage.getItem(STORAGE_KEYS.plantoes);
@@ -63,4 +87,23 @@ export class StorageProvider {
       return JSON.parse(obj);
   }
  }
+
+
+
+ setAtividade(atividade:AtividadeDTO[]){
+
+  localStorage.setItem(STORAGE_KEYS.atividade,JSON.stringify(atividade));
+}
+
+getAtividade(){
+  let obj2:AtividadeDTO[]=[];
+ let obj = localStorage.getItem(STORAGE_KEYS.atividade);
+ 
+ if (obj == null) {
+     return obj2;
+ }
+ else {
+     return JSON.parse(obj);
+ }
+}
 }

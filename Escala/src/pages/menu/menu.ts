@@ -50,8 +50,18 @@ export class MenuPage {
     this.navCtrl.push('InPlantaoPage');
   }
 
+  inserirAtividades(){
+
+    this.navCtrl.push('InsereAtividadePage');
+
+  }
+
   listaPlantoes(){
     this.navCtrl.push('ListaPlantaoPage');
+  }
+
+  listarAtividades(){
+    this.navCtrl.push('ListarAtividadePage');
   }
 
   chamaNota()
